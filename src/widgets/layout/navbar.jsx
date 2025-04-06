@@ -11,6 +11,8 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export function Navbar({ brandName, routes, action }) {
+
+  // console.log(brandName, action)
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -23,6 +25,7 @@ export function Navbar({ brandName, routes, action }) {
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {routes.map(({ name, path, icon, href, target }) => (
+        
         <Typography
           key={name}
           as="li"
@@ -70,14 +73,14 @@ export function Navbar({ brandName, routes, action }) {
         </Link>
         <div className="hidden lg:block">{navList}</div>
         <div className="hidden gap-2 lg:flex">
-          <a
-            href="https://www.material-tailwind.com/blocks?ref=mtkr"
+          {/* <a
+            href="#"
             target="_blank"
           >
             <Button variant="text" size="sm" color="white" fullWidth>
               pro version
             </Button>
-          </a>
+          </a> */}
           {React.cloneElement(action, {
             className: "hidden lg:inline-block",
           })}
@@ -102,15 +105,15 @@ export function Navbar({ brandName, routes, action }) {
       >
         <div className="container mx-auto">
           {navList}
-          <a
-            href="https://www.material-tailwind.com/blocks/react?ref=mtkr"
+          {/* <a
+            href="#"
             target="_blank"
             className="mb-2 block"
           >
             <Button variant="text" size="sm" fullWidth>
               pro version
             </Button>
-          </a>
+          </a> */}
           {React.cloneElement(action, {
             className: "w-full block",
           })}
@@ -135,7 +138,7 @@ Navbar.defaultProps = {
 };
 
 Navbar.propTypes = {
-  brandName: PropTypes.string,
+  brandName: PropTypes.string.isRequired,
   routes: PropTypes.arrayOf(PropTypes.object).isRequired,
   action: PropTypes.node,
 };

@@ -1,13 +1,14 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Navbar } from "@/widgets/layout";
 import routes from "@/routes";
+import { Button } from "@material-tailwind/react";
 
 
 function App() {
   const { pathname } = useLocation();
 
   return (
-    <>
+    <div className={pathname !== '/portfolio' ? `h-full w-full bg-[url('/img/header-bg.png')] bg-center` : ''}>
       {!(pathname == '/sign-in' || pathname == '/sign-up') && (
         <div className="container absolute left-2/4 z-10 mx-auto -translate-x-2/4 p-4">
           <Navbar routes={routes} />
@@ -21,7 +22,7 @@ function App() {
         )}
         <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
