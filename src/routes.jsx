@@ -1,5 +1,6 @@
 import { Home, Portfolio, Profile, SignIn, SignUp } from "@/pages";
 import ProjectDetail from "./pages/project-detail";
+import { Services } from "./pages/services";
 
 export const routes = [
   {
@@ -15,16 +16,10 @@ export const routes = [
     show: true,
   },
   {
-    name: "Explore",
-    path: "/explore",
-    element: <ProjectDetail />,
-    show: false,
-  },
-  {
-    name: "services",
+    name: "Services",
     path: "/services",
-    element: <Profile />,
-    show: true,
+    element: <Services />,
+    show: false,
   },
   {
     name: "about us",

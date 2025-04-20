@@ -90,6 +90,11 @@ export function Portfolio() {
         { value: "dashboard", label: "Dashboards" },
     ];
 
+    // Handle tab change with a proper function
+    const handleTabChange = (value) => {
+        setActiveTab(value);
+    };
+
     // Filter projects based on active tab
     const filteredProjects = activeTab === "all"
         ? projects
@@ -98,7 +103,6 @@ export function Portfolio() {
     return (
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             {/* Hero Section */}
-            {/* <div className="bg-gradient-to-r from-blue-500 to-purple-600 py-24 px-4 md:px-8"> */}
             <div className="bg-profile-background top-0 h-full w-full bg-[url('/img/background-3.png')] bg-cover bg-center scale-105 py-24 px-4 md:px-8">
                 <div className="container mx-auto">
                     <Typography variant="h1" color="white" className="mb-4 text-center">
@@ -111,51 +115,63 @@ export function Portfolio() {
                 </div>
             </div>
 
-            {/* Portfolio Filter Tabs - Extended Horizontally */}
+            {/* Portfolio Filter Tabs */}
             <div className="container mx-auto px-4 py-12">
-                <Tabs value={activeTab} className="mb-12">
+                <div className="mb-12">
                     {/* Desktop Tabs (hidden on small screens) */}
                     <div className="hidden md:block">
-                        <TabsHeader className="mx-auto flex justify-center">
-                            {categories.map(({ value, label }) => (
-                                <Tab
-                                    key={value}
-                                    value={value}
-                                    onClick={() => setActiveTab(value)}
-                                    className="font-medium px-8 py-3"
-                                >
-                                    {label}
-                                </Tab>
-                            ))}
-                        </TabsHeader>
+                        <Tabs value={activeTab}>
+                            <TabsHeader className="mx-auto flex justify-center">
+                                {categories.map(({ value, label }) => (
+                                    <Tab
+                                        key={value}
+                                        value={value}
+                                        onClick={() => handleTabChange(value)}
+                                        className="font-medium px-8 py-3"
+                                    >
+                                        {label}
+                                    </Tab>
+                                ))}
+                            </TabsHeader>
+                            <TabsBody className="mt-8">
+                                <TabPanel value={activeTab} className="p-0">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {filteredProjects.map((project) => (
+                                            <ProjectCard key={project.id} project={project} />
+                                        ))}
+                                    </div>
+                                </TabPanel>
+                            </TabsBody>
+                        </Tabs>
                     </div>
 
                     {/* Mobile Tabs (hidden on medium screens and up) */}
                     <div className="block md:hidden">
-                        <TabsHeader className="flex flex-wrap justify-center overflow-x-auto">
-                            {categories.map(({ value, label }) => (
-                                <Tab
-                                    key={value}
-                                    value={value}
-                                    onClick={() => setActiveTab(value)}
-                                    className="font-medium px-4 py-2 whitespace-nowrap text-sm"
-                                >
-                                    {label}
-                                </Tab>
-                            ))}
-                        </TabsHeader>
-                    </div>
-
-                    <TabsBody className="mt-8">
-                        <TabPanel value={activeTab} className="p-0">
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {filteredProjects.map((project) => (
-                                    <ProjectCard key={project.id} project={project} />
+                        <Tabs value={activeTab}>
+                            <TabsHeader className="flex flex-wrap justify-center overflow-x-auto">
+                                {categories.map(({ value, label }) => (
+                                    <Tab
+                                        key={value}
+                                        value={value}
+                                        onClick={() => handleTabChange(value)}
+                                        className="font-medium px-4 py-2 whitespace-nowrap text-sm"
+                                    >
+                                        {label}
+                                    </Tab>
                                 ))}
-                            </div>
-                        </TabPanel>
-                    </TabsBody>
-                </Tabs>
+                            </TabsHeader>
+                            <TabsBody className="mt-8">
+                                <TabPanel value={activeTab} className="p-0">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {filteredProjects.map((project) => (
+                                            <ProjectCard key={project.id} project={project} />
+                                        ))}
+                                    </div>
+                                </TabPanel>
+                            </TabsBody>
+                        </Tabs>
+                    </div>
+                </div>
             </div>
 
             {/* Call to Action */}
@@ -197,9 +213,11 @@ const ProjectCard = ({ project }) => {
                     style={{ transform: isHovered ? 'scale(1.1)' : 'scale(1)' }}
                 />
                 <div className={`absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-                    <Button color="white" variant="text" className="rounded-full">
-                        View Project
-                    </Button>
+                    <Link to={'/explore'}>
+                        <Button color="white" variant="text" className="rounded-full">
+                            View Project
+                        </Button>
+                    </Link>
                 </div>
             </CardHeader>
             <CardBody>
@@ -218,7 +236,6 @@ const ProjectCard = ({ project }) => {
                 </div>
 
                 <Link to={'/explore'}>
-
                     <Button
                         variant="text"
                         color="blue"
