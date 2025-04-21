@@ -1,11 +1,23 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
 import { Navbar } from "@/widgets/layout";
 import routes from "@/routes";
 import { Button } from "@material-tailwind/react";
-
+import { initGA, logPageView } from "@/utils/analytics";
 
 function App() {
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const { pathname } = location;
+
+  // Initialize Google Analytics
+  useEffect(() => {
+    initGA();
+  }, []);
+
+  // Track page views
+  useEffect(() => {
+    logPageView();
+  }, [pathname]);
 
   return (
     <div className={pathname !== '/portfolio' ? `h-full w-full bg-[url('/img/header-bg.png')] bg-center` : ''}>
