@@ -41,7 +41,7 @@ export function Home() {
   };
 
   const handleSubmit = async (e) => {
-    e?.preventDefault?.(); // Prevent default form submission
+    e.preventDefault(); // Prevent default form submission
     
     // Form validation
     const validationError = validateForm();
@@ -55,7 +55,7 @@ export function Home() {
     }
     
     setFormStatus({
-      message: "Sending message...",
+      message: "Sending your message...",
       isError: false,
       isSubmitting: true,
     });
@@ -63,13 +63,15 @@ export function Home() {
     try {
       // First check if server is reachable
       try {
-        await axios.get("http://localhost:5000/api/health");
+        const healthCheck = await axios.get("http://localhost:5000/api/health");
+        console.log("Server health check successful:", healthCheck.data);
       } catch (healthError) {
         console.error("Server health check failed:", healthError);
-        throw new Error("Server appears to be offline. Please try again later.");
+        throw new Error("Our server appears to be offline. Please try again later or contact us directly at support@techvelsolutions.com");
       }
       
       // Send the actual form data
+      console.log("Sending contact form data:", formData);
       const res = await axios.post("http://localhost:5000/api/contact", formData, {
         headers: {
           "Content-Type": "application/json",
@@ -77,9 +79,11 @@ export function Home() {
         withCredentials: false,
       });
   
+      console.log("Contact form response:", res.data);
+      
       if (res.status === 200) {
         setFormStatus({
-          message: "Message sent successfully!",
+          message: res.data.message || "Thank you! Your message has been sent successfully. We'll get back to you soon.",
           isError: false,
           isSubmitting: false,
         });
@@ -90,7 +94,7 @@ export function Home() {
     } catch (err) {
       console.error("Error while sending message:", err?.response?.data || err?.message || err);
       setFormStatus({
-        message: err?.response?.data?.message || err?.message || "Failed to send message. Try again later.",
+        message: err?.response?.data?.message || err?.message || "Failed to send message. Please try again later or email us directly at support@techvelsolutions.com",
         isError: true,
         isSubmitting: false,
       });
