@@ -12,7 +12,7 @@ npm install
 
 2. Create a `.env` file in the `server` directory with the following content:
 ```
-PORT=5000
+PORT=8000
 EMAIL_PASSWORD=YOUR_EMAIL_PASSWORD
 ```
 

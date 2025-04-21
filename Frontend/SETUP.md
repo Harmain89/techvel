@@ -16,7 +16,7 @@ npm install
 
 3. Create a `.env` file in the server directory with your email credentials:
 ```
-PORT=5000
+PORT=8000
 EMAIL_PASSWORD=YOUR_EMAIL_PASSWORD
 ```
 
@@ -27,7 +27,7 @@ Replace `YOUR_EMAIL_PASSWORD` with the actual password for the `ceo@techvelsolut
 npm run dev
 ```
 
-The server will start on port 5000.
+The server will start on port 8000.
 
 ## Frontend Setup
 
