@@ -230,7 +230,7 @@ export function Services() {
             {/* Hero Section */}
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 py-24 px-4 md:px-8 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
-                <div className="container mx-auto relative z-10">
+                <div className="container mx-auto relative">
                     <Typography variant="h1" color="white" className="mb-4 text-center">
                         Our Services
                     </Typography>
