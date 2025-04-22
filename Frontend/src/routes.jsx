@@ -15,12 +15,12 @@ export const routes = [
     element: <Portfolio />,
     show: true,
   },
-  {
-    name: "Services",
-    path: "/services",
-    element: <Services />,
-    show: false,
-  },
+  // {
+  //   name: "Services",
+  //   path: "/services",
+  //   element: <Services />,
+  //   show: false,
+  // },
   {
     name: "about us",
     path: "/about",

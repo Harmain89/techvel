@@ -67,9 +67,15 @@ export function Navbar({ brandName, routes, action }) {
     <MTNavbar color="transparent" className="p-3">
       <div className="container mx-auto flex items-center justify-between text-white">
         <Link to="/">
-          <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold">
+          {/* <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold">
             {brandName}
-          </Typography>
+          </Typography> */}
+          <img
+            style={{"width": "100%","height": "63px"}}
+            src="./img/logo-removebg.png" // replace with your actual path like /img/company-icon.png
+            alt="Company Logo"
+            className="h-14 w-auto mr-4 ml-2 cursor-pointer"
+          />
         </Link>
         <div className="hidden lg:block">{navList}</div>
         <div className="hidden gap-2 lg:flex">
