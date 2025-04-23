@@ -1,6 +1,7 @@
 import { Home, Portfolio, Profile, SignIn, SignUp } from "@/pages";
 import ProjectDetail from "./pages/project-detail";
 import { Services } from "./pages/services";
+import About from "./pages/about";
 
 export const routes = [
   {
@@ -24,6 +25,12 @@ export const routes = [
   {
     name: "about us",
     path: "/about",
+    element: <About />,
+    show: true,
+  },
+  {
+    name: "Profile",
+    path: "/profile",
     element: <Profile />,
     show: true,
   },

@@ -13,12 +13,16 @@ import {
   AccordionHeader,
   AccordionBody,
   Textarea,
+  CardHeader,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { Footer, PageTitle } from "@/widgets/layout";
 import { Input } from "@material-tailwind/react";
 import axios from "axios";
-import { contactData } from "@/data";
+import { contactData, featuresData } from "@/data";
+import { FeatureCard } from "@/widgets/cards";
+import { FingerPrintIcon } from "@heroicons/react/24/solid";
+import TypingEffect from "@/widgets/TypingEffect";
 
 export function Home() {
   const [activeTab, setActiveTab] = useState("development");
@@ -332,18 +336,22 @@ export function Home() {
   return (
     <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 py-24 px-4 md:px-8 relative overflow-hidden">
+      {/* <div className="bg-gradient-to-r from-blue-600 to-purple-600 py-24 px-4 md:px-8 relative overflow-hidden"> */}
+      <div className="bg-[url('/img/bg-7.png')] bg-cover bg-center py-52 px-4 md:px-8 relative overflow-hidden md:ml-[-43px]">
         <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
         <div className="container mx-auto relative">
-          <Typography variant="h1" color="white" className="mb-4 text-center">
-            Our Services
-          </Typography>
+          {/* <Typography variant="h1" color="white" className="mb-4 text-center">
+            Welcome! To The Techvel Solutions.
+          </Typography> */}
+          <div className="justify-center items-center">
+            Welcome, <TypingEffect />
+          </div>
           <Typography variant="lead" color="white" className="opacity-90 text-center max-w-2xl mx-auto">
             Comprehensive digital solutions tailored to your unique business needs.
             From concept to deployment, we deliver excellence at every step.
           </Typography>
           <div className="flex justify-center mt-8">
-            <Button size="lg" color="white" className="text-blue-500 rounded-full px-8 mr-4">
+            <Button size="lg" color="white" className="text-[#f92628] rounded-full px-8 mr-4">
               Get Started
             </Button>
             <Button size="lg" variant="outlined" color="white" className="rounded-full px-8">
@@ -358,9 +366,68 @@ export function Home() {
       </div>
 
       
+      {/* Features Section */}
+      <section className="-mt-32 px-4 pb-20 pt-4">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {featuresData.map(({ color, title, icon, description }) => (
+              <FeatureCard
+                key={title}
+                color={color}
+                title={title}
+                icon={React.createElement(icon, {
+                  className: "w-5 h-5 text-white",
+                })}
+                description={description}
+              />
+            ))}
+          </div>
+          
+          {/* About Section */}
+          <div className="mt-32 flex flex-wrap items-center">
+            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
+                <FingerPrintIcon className="h-8 w-8 text-white" />
+              </div>
+              <Typography variant="h3" className="mb-3 font-bold" color="blue-gray">
+                Working with us is a pleasure
+              </Typography>
+              <Typography className="mb-8 font-normal text-blue-gray-500">
+                Don't let your users guess by attaching tooltips and popovers to any element.
+              </Typography>
+              <Button variant="filled">read more</Button>
+            </div>
+            
+            <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
+              <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
+                <CardHeader floated={false} className="relative h-56">
+                  <img
+                    alt="Teamwork illustration"
+                    src="/img/bg-5.png"
+                    className="h-full w-full object-cover"
+                  />
+                </CardHeader>
+                <CardBody>
+                  <Typography variant="small" color="blue-gray" className="font-normal">
+                    Enterprise
+                  </Typography>
+                  <Typography variant="h5" color="blue-gray" className="mb-3 mt-2 font-bold">
+                    Top Notch About
+                  </Typography>
+                  <Typography className="font-normal text-blue-gray-500">
+                    The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer.
+                  </Typography>
+                </CardBody>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
       {/* CTA Section */}
       <div className="container mx-auto px-4 py-20">
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 relative overflow-hidden">
+        <div className="bg-[linear-gradient(90deg,_#2563eb,_#f92628,_#2563eb)] bg-[length:200%_100%] bg-left hover:bg-right transition-[background-position] duration-700 ease-in-out rounded-2xl p-12 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
           <div className="relative z-10 text-center">
             <Typography variant="h3" color="white" className="mb-4">
@@ -371,7 +438,7 @@ export function Home() {
               our team is ready to help you achieve digital excellence.
             </Typography>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" color="white" className="text-blue-500 rounded-full px-8">
+              <Button size="lg" color="white" className="text-[#f92628] rounded-full px-8">
                 Get Started
               </Button>
               <Button size="lg" variant="outlined" color="white" className="rounded-full px-8">

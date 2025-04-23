@@ -18,7 +18,7 @@ import { featuresData, teamData, contactData } from "@/data";
 import axios from "axios";
 import { logEvent } from "@/utils/analytics";
 
-export function Services() {
+export function About() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -175,7 +175,7 @@ export function Services() {
                     Enterprise
                   </Typography>
                   <Typography variant="h5" color="blue-gray" className="mb-3 mt-2 font-bold">
-                    Top Notch Services
+                    Top Notch About
                   </Typography>
                   <Typography className="font-normal text-blue-gray-500">
                     The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer.
@@ -348,7 +348,7 @@ export function Services() {
   );
 }
 
-Services.propTypes = {
+About.propTypes = {
   featuresData: PropTypes.arrayOf(
     PropTypes.shape({
       color: PropTypes.string,
@@ -374,4 +374,4 @@ Services.propTypes = {
   ),
 };
 
-export default Services;
+export default About;
