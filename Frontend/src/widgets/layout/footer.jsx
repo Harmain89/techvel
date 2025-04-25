@@ -20,7 +20,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
                 <a
                   key={name}
                   href={path}
-                  target="_blank"
+                  // target="_blank"
                   rel="noopener noreferrer"
                 >
                   <IconButton color="white" className="rounded-full shadow-none bg-transparent">
@@ -48,7 +48,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
                       <Typography
                         as="a"
                         href={item.path}
-                        target="_blank"
+                        // target="_blank"
                         rel="noreferrer"
                         variant="small"
                         className="mb-2 block font-normal text-blue-gray-500 hover:text-blue-gray-700"
@@ -79,44 +79,30 @@ export function Footer({ title, description, socials, menus, copyright }) {
 }
 
 Footer.defaultProps = {
-  title: "Material Tailwind",
+  title: "Techvel Solutions",
   description:
-    "Easy to use React components for Tailwind CSS and Material Design.",
+    "Fueling innovation through cutting-edge technology, Techvel Solutions helps you transform ideas into impactful digital experiences that stand the test of time.",
   socials: [
     {
       color: "gray",
-      name: "twitter",
-      path: "https://www.twitter.com/creativetim",
+      name: "linkedin",
+      path: "https://www.linkedin.com/company/techvel-solutions/about/",
     },
     {
       color: "gray",
-      name: "youtube",
-      path: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w",
-    },
-    {
-      color: "gray",
-      name: "instagram",
-      path: "https://www.instagram.com/creativetimofficial/",
-    },
-    {
-      color: "black",
-      name: "github",
-      path: "https://github.com/creativetimofficial/material-tailwind",
+      name: "facebook",
+      path: "#",
     },
   ],
   menus: [
     {
-      name: "useful links",
+      name: "Pages",
       items: [
-        { name: "About Us", path: "https://www.creative-tim.com/presentation" },
-        { name: "Blog", path: "https://www.creative-tim.com/blog" },
+        { name: "About Us", path: "#" },
+        { name: "Blog", path: "#" },
         {
-          name: "Github",
-          path: "https://www.github.com/creativetimofficial/material-tailwind?ref=mtk",
-        },
-        {
-          name: "Free Products",
-          path: "https://www.creative-tim.com/templates/free?ref=mtk",
+          name: "Services",
+          path: "#",
         },
       ],
     },
@@ -124,20 +110,12 @@ Footer.defaultProps = {
       name: "other resources",
       items: [
         {
-          name: "MIT License",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/LICENSE.md?ref=mtk",
+          name: "Portfolio",
+          path: "/portfolio",
         },
         {
-          name: "Contribute",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CONTRIBUTING.md?ref=mtk",
-        },
-        {
-          name: "Change Log",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CHANGELOG.md?ref=mtk",
-        },
-        {
-          name: "Contact Us",
-          path: "https://creative-tim.com/contact-us?ref=mtk",
+          name: "Projetcs",
+          path: "#",
         },
       ],
     },
@@ -150,8 +128,8 @@ Footer.defaultProps = {
       </span>
       by{" "}
       <a
-        href="https://www.creative-tim.com?ref=mtk"
-        target="_blank"
+        href="#"
+        // target="_blank"
         className="text-blue-gray-500 transition-colors hover:text-blue-500"
       >
         <span className="font-bold">

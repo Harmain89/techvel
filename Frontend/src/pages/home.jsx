@@ -337,7 +337,7 @@ export function Home() {
     <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Hero Section */}
       {/* <div className="bg-gradient-to-r from-blue-600 to-purple-600 py-24 px-4 md:px-8 relative overflow-hidden"> */}
-      <div className="bg-[url('/img/bg-7.png')] bg-cover bg-center py-52 px-4 md:px-8 relative overflow-hidden md:ml-[-43px]">
+      <div className="bg-[url('/img/bg-8.png')] bg-cover bg-center py-52 px-4 md:px-8 relative overflow-hidden md:ml-[-43px]">
         <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
         <div className="container mx-auto relative">
           {/* <Typography variant="h1" color="white" className="mb-4 text-center">
