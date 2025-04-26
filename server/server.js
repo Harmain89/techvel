@@ -9,7 +9,8 @@ const PORT = process.env.PORT || 8000;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173', // Vite's default port
+  // origin: 'http://localhost:5173', // Vite's default port
+  origin: 'https://techvelsolutions.com', // Vite's default port
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -17,7 +18,7 @@ app.use(express.json());
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ status: 'OK', message: 'Server is runningsssss' });
+  res.status(200).json({ status: 'OK', message: 'Server is running.' });
 });
 
 // Email configuration
