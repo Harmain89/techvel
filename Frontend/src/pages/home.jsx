@@ -286,7 +286,7 @@ export function Home() {
       
       // First check if server is reachable
       try {
-        const healthCheck = await axios.get("http://localhost:8000/api/health");
+        const healthCheck = await axios.get(`${backendUrl}/health`);
         console.log("Server health check successful:", healthCheck.data);
       } catch (healthError) {
         console.error("Server health check failed:", healthError);
@@ -297,7 +297,7 @@ export function Home() {
       
       // Send the actual form data
       console.log("Sending contact form data:", formData);
-      const res = await axios.post("http://localhost:8000/api/contact", formData, {
+      const res = await axios.post(`${backendUrl}/contact`, formData, {
         headers: {
           "Content-Type": "application/json",
         },

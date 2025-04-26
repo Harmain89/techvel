@@ -67,11 +67,11 @@ export function Services() {
       logEvent("Contact Form", "Submit Attempt", "Form Submitted");
       
       // Health check
-      await axios.get("http://localhost:8000/api/health");
+      await axios.get(`${backendUrl}/health`);
       
       // Form submission
       const res = await axios.post(
-        "http://localhost:8000/api/contact", 
+        `${backendUrl}/contact`, 
         formData,
         {
           headers: { "Content-Type": "application/json" },

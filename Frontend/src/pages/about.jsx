@@ -17,6 +17,7 @@ import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
 import axios from "axios";
 import { logEvent } from "@/utils/analytics";
+import { backendUrl } from "@/utils/constants";
 
 export function About() {
   const [formData, setFormData] = useState({
@@ -67,11 +68,11 @@ export function About() {
       logEvent("Contact Form", "Submit Attempt", "Form Submitted");
       
       // Health check
-      await axios.get("http://localhost:8000/api/health");
+      await axios.get(`${backendUrl}/health`);
       
       // Form submission
       const res = await axios.post(
-        "http://localhost:8000/api/contact", 
+        `${backendUrl}/contact`, 
         formData,
         {
           headers: { "Content-Type": "application/json" },
