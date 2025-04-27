@@ -137,7 +137,7 @@ Navbar.defaultProps = {
       target="_blank"
     >
       <Button variant="gradient" size="sm" fullWidth className="border-2 border-white !important rounded-[10px]">
-        Contact Us
+        Get Started?
       </Button>
     </a>
   ),

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Card,
   CardBody,
@@ -19,9 +19,8 @@ import { Link } from "react-router-dom";
 import { Footer, PageTitle } from "@/widgets/layout";
 import { Input } from "@material-tailwind/react";
 import axios from "axios";
-import { contactData, featuresData } from "@/data";
 import { FeatureCard } from "@/widgets/cards";
-import { FingerPrintIcon } from "@heroicons/react/24/solid";
+import { contactData, featuresData } from "@/data";
 import TypingEffect from "@/widgets/TypingEffect";
 
 // Define backend URL - use proxy in development
@@ -32,6 +31,9 @@ export function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [open, setOpen] = useState(0);
   const [visibleCards, setVisibleCards] = useState({});
+
+  // Ref for contact section
+  const contactRef = useRef(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -236,8 +238,6 @@ export function Home() {
     return icons[name] || null;
   };
 
-
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -333,22 +333,36 @@ export function Home() {
   return (
     <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Hero Section */}
-      {/* <div className="bg-gradient-to-r from-blue-600 to-purple-600 py-24 px-4 md:px-8 relative overflow-hidden"> */}
-      <div className="bg-[url('/img/bg-8.png')] bg-cover bg-center py-52 px-4 md:px-8 relative overflow-hidden md:ml-[-43px]">
+      <div className="bg-[url('/img/bg-8.png')] bg-cover bg-center pt-20 md:pt-12 pb-12 md:pb-32 px-4 md:px-8 relative overflow-hidden md:ml-[-43px]">
         <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
+        {/* Logo and burger menu row */}
+        <div className="flex items-center justify-between pt-4 pb-2 md:pt-8 md:pb-4">
+          {/* Place your logo and burger menu here, e.g.: */}
+          {/* <img src="/img/logo.png" alt="Logo" className="h-10" /> */}
+          {/* <BurgerMenuComponent /> */}
+        </div>
         <div className="container mx-auto relative">
-          {/* <Typography variant="h1" color="white" className="mb-4 text-center">
-            Welcome! To The Techvel Solutions.
-          </Typography> */}
           <div className="justify-center items-center">
             Welcome, <TypingEffect />
           </div>
+          <Typography variant="h1" color="white" className="mb-4 text-center text-3xl md:text-6xl font-bold mt-0">
+            Welcome, To Innovation.
+          </Typography>
           <Typography variant="lead" color="white" className="opacity-90 text-center max-w-2xl mx-auto">
             Comprehensive digital solutions tailored to your unique business needs.
             From concept to deployment, we deliver excellence at every step.
           </Typography>
           <div className="flex justify-center mt-8">
-            <Button size="lg" color="white" className="text-[#f92628] rounded-full px-8 mr-4">
+            <Button 
+              size="lg" 
+              color="white" 
+              className="text-[#f92628] rounded-full px-8 mr-4"
+              onClick={() => {
+                if (contactRef.current) {
+                  contactRef.current.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               Get Started
             </Button>
             <Button size="lg" variant="outlined" color="white" className="rounded-full px-8">
@@ -364,87 +378,11 @@ export function Home() {
 
       
       {/* Features Section */}
-      <section className="-mt-32 px-4 pb-20 pt-4">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuresData.map(({ color, title, icon, description }) => (
-              <FeatureCard
-                key={title}
-                color={color}
-                title={title}
-                icon={React.createElement(icon, {
-                  className: "w-5 h-5 text-white",
-                })}
-                description={description}
-              />
-            ))}
-          </div>
-          
-          {/* About Section */}
-          <div className="mt-32 flex flex-wrap items-center">
-            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
-                <FingerPrintIcon className="h-8 w-8 text-white" />
-              </div>
-              <Typography variant="h3" className="mb-3 font-bold" color="blue-gray">
-                Working with us is a pleasure
-              </Typography>
-              <Typography className="mb-8 font-normal text-blue-gray-500">
-                Don't let your users guess by attaching tooltips and popovers to any element.
-              </Typography>
-              <Button variant="filled">read more</Button>
-            </div>
-            
-            <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
-              <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
-                <CardHeader floated={false} className="relative h-56">
-                  <img
-                    alt="Teamwork illustration"
-                    src="/img/bg-5.png"
-                    className="h-full w-full object-cover"
-                  />
-                </CardHeader>
-                <CardBody>
-                  <Typography variant="small" color="blue-gray" className="font-normal">
-                    Enterprise
-                  </Typography>
-                  <Typography variant="h5" color="blue-gray" className="mb-3 mt-2 font-bold">
-                    Top Notch About
-                  </Typography>
-                  <Typography className="font-normal text-blue-gray-500">
-                    The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer.
-                  </Typography>
-                </CardBody>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Removed the three feature cards and the 'Working with us is a pleasure' section as requested */}
 
       
       {/* CTA Section */}
-      <div className="container mx-auto px-4 py-20">
-        <div className="bg-[linear-gradient(90deg,_#2563eb,_#f92628,_#2563eb)] bg-[length:200%_100%] bg-left hover:bg-right transition-[background-position] duration-700 ease-in-out rounded-2xl p-12 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
-          <div className="relative z-10 text-center">
-            <Typography variant="h3" color="white" className="mb-4">
-              Ready to Transform Your Digital Presence?
-            </Typography>
-            <Typography color="white" className="opacity-90 max-w-2xl mx-auto mb-8">
-              Let's collaborate to bring your vision to life. Whether you're starting from scratch or enhancing an existing solution,
-              our team is ready to help you achieve digital excellence.
-            </Typography>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" color="white" className="text-[#f92628] rounded-full px-8">
-                Get Started
-              </Button>
-              <Button size="lg" variant="outlined" color="white" className="rounded-full px-8">
-                Schedule a Consultation
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
+    
 
       {/* Services Overview */}
       <div className="container mx-auto px-4 py-20">
@@ -621,119 +559,46 @@ export function Home() {
           </div>
         </div>
       </div>
-
-      {/* Testimonials Section */}
       <div className="container mx-auto px-4 py-20">
-        <div className="text-center mb-16">
-          <Typography variant="h3" color="blue-gray" className="mb-4">
-            What Our Clients Say
-          </Typography>
-          <Typography className="text-gray-700 max-w-3xl mx-auto">
-            We've helped businesses of all sizes achieve their digital goals. Here's what some of our clients have to say.
-          </Typography>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Testimonial 1 */}
-          <Card className="overflow-hidden">
-            <CardBody>
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                  </svg>
-                </div>
-                <div>
-                  <Typography variant="h6" color="blue-gray">
-                    Sarah Johnson
-                  </Typography>
-                  <Typography variant="small" color="gray">
-                    CTO, TechFlow Inc.
-                  </Typography>
-                </div>
-              </div>
-              <Typography className="text-gray-700 italic">
-                "Their team delivered an exceptional e-commerce platform that exceeded our expectations. The site is not only visually stunning but also performs brilliantly with our complex inventory system."
-              </Typography>
-              <div className="flex mt-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-yellow-700">
-                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                  </svg>
-                ))}
-              </div>
-            </CardBody>
-          </Card>
-
-          {/* Testimonial 2 */}
-          <Card className="overflow-hidden">
-            <CardBody>
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                  </svg>
-                </div>
-                <div>
-                  <Typography variant="h6" color="blue-gray">
-                    Michael Rodriguez
-                  </Typography>
-                  <Typography variant="small" color="gray">
-                    CEO, HealthConnect
-                  </Typography>
-                </div>
-              </div>
-              <Typography className="text-gray-700 italic">
-                "The healthcare management system they developed has transformed our operations. Patient care has improved dramatically, and our staff can now focus on what matters most instead of paperwork."
-              </Typography>
-              <div className="flex mt-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-yellow-700">
-                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                  </svg>
-                ))}
-              </div>
-            </CardBody>
-          </Card>
-
-          {/* Testimonial 3 */}
-          <Card className="overflow-hidden">
-            <CardBody>
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                  </svg>
-                </div>
-                <div>
-                  <Typography variant="h6" color="blue-gray">
-                    Emily Chen
-                  </Typography>
-                  <Typography variant="small" color="gray">
-                    Marketing Director, GrowthBrand
-                  </Typography>
-                </div>
-              </div>
-              <Typography className="text-gray-700 italic">
-                "Their UI/UX team redesigned our entire mobile app, resulting in a 45% increase in user engagement and a significant boost in customer satisfaction scores. Truly exceptional work!"
-              </Typography>
-              <div className="flex mt-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-yellow-700">
-                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                  </svg>
-                ))}
-              </div>
-            </CardBody>
-          </Card>
-        </div>
-
-        <div className="text-center mt-12">
-          <Button color="blue" size="lg" className="rounded-full px-8">
-            Read More Success Stories
-          </Button>
+        <div className="bg-[linear-gradient(90deg,_#2563eb,_#f92628,_#2563eb)] bg-[length:200%_100%] bg-left hover:bg-right transition-[background-position] duration-700 ease-in-out rounded-2xl p-12 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
+          <div className="relative z-10 text-center">
+            <Typography variant="h3" color="white" className="mb-4">
+              Ready to Transform Your Digital Presence?
+            </Typography>
+            <Typography color="white" className="opacity-90 max-w-2xl mx-auto mb-8">
+              Let's collaborate to bring your vision to life. Whether you're starting from scratch or enhancing an existing solution,
+              our team is ready to help you achieve digital excellence.
+            </Typography>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button size="lg" color="white" className="text-[#f92628] rounded-full px-8" onClick={() => { if (contactRef.current) { contactRef.current.scrollIntoView({ behavior: 'smooth' }); } }}>
+                Get Started
+              </Button>
+              <Button size="lg" variant="outlined" color="white" className="rounded-full px-8">
+                Schedule a Consultation
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {featuresData.map(({ color, title, icon, description }) => (
+              <FeatureCard
+                key={title}
+                color={color}
+                title={title}
+                icon={React.createElement(icon, {
+                  className: "w-5 h-5 text-white",
+                })}
+                description={description}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <div className="bg-blue-gray-50 py-20 px-4">
@@ -777,43 +642,27 @@ export function Home() {
             <Typography className="text-gray-700 mb-4">
               Still have questions? Contact our team for personalized assistance.
             </Typography>
-            <Button color="blue" size="lg" className="rounded-full px-8">
-              Contact Us
-            </Button>
+            <Button
+  type="button"
+  color="blue"
+  size="lg"
+  className="rounded-full px-8"
+  onClick={() => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }}
+>
+  Get Started?
+</Button>
           </div>
         </div>
       </div>
 
 
       {/* CONTACT Section */}
-      <section className="relative bg-white py-24 px-4">
+      <section ref={contactRef} className="relative bg-white py-20 px-4">
         <div className="container mx-auto">
-          <PageTitle section="Co-Working" heading="Build something">
-            Put the potentially record low maximum sea ice extent this year down to low ice.
-          </PageTitle>
-          <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-            {contactData.map(({ title, icon, description }) => (
-              <Card
-                key={title}
-                color="transparent"
-                shadow={false}
-                className="text-center text-blue-gray-900"
-              >
-                <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-blue-gray-900 shadow-lg shadow-gray-500/20">
-                  {React.createElement(icon, {
-                    className: "w-5 h-5 text-white",
-                  })}
-                </div>
-                <Typography variant="h5" color="blue-gray" className="mb-2">
-                  {title}
-                </Typography>
-                <Typography className="font-normal text-blue-gray-500">
-                  {description}
-                </Typography>
-              </Card>
-            ))}
-          </div>
-
           <PageTitle section="Contact Us" heading="Want to work with us?">
             Complete this form and we will get back to you in 24 hours.
           </PageTitle>
