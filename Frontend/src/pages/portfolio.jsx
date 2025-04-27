@@ -74,12 +74,12 @@ export function Portfolio() {
         {
             id: 6,
             title: "Analytics Dashboard",
-            description: "Customer behavior analysis dashboard with advanced filtering",
+            description: "Customer behavior analysis dashboard with advanced filtering  and monitoring",
             category: "dashboard",
             image: "/images/portfolio/analytics.jpg",
             technologies: ["React", "Redux", "Node.js", "MongoDB"],
             link: "#",
-        },
+        }
     ];
 
     // Categories for filtering
