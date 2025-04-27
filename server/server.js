@@ -9,9 +9,10 @@ const PORT = process.env.PORT || 8000;
 
 // Middleware
 app.use(cors({
-  // origin: 'http://localhost:5173', // Vite's default port
-  origin: 'https://techvelsolutions.com', // Vite's default port
-  credentials: true
+  origin: '*', // Allow all origins in development
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 app.use(bodyParser.json());
 app.use(express.json());

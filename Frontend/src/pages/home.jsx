@@ -24,6 +24,9 @@ import { FeatureCard } from "@/widgets/cards";
 import { FingerPrintIcon } from "@heroicons/react/24/solid";
 import TypingEffect from "@/widgets/TypingEffect";
 
+// Define backend URL - use proxy in development
+const backendUrl = import.meta.env.DEV ? '/api' : 'https://techvel-server.vercel.app/api';
+
 export function Home() {
   const [activeTab, setActiveTab] = useState("development");
   const [isVisible, setIsVisible] = useState(false);
@@ -269,8 +272,6 @@ export function Home() {
         isError: true,
         isSubmitting: false,
       });
-      // Track validation error
-      logEvent("Contact Form", "Validation Error", validationError);
       return;
     }
     
@@ -281,17 +282,19 @@ export function Home() {
     });
   
     try {
-      // Track form submission attempt
-      logEvent("Contact Form", "Submit Attempt", "Form Submitted");
-      
       // First check if server is reachable
       try {
-        const healthCheck = await axios.get(`${backendUrl}/health`);
+        const healthCheck = await axios.get(`${backendUrl}/health`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          },
+          withCredentials: false
+        });
         console.log("Server health check successful:", healthCheck.data);
       } catch (healthError) {
         console.error("Server health check failed:", healthError);
-        // Track server health check failure
-        logEvent("Contact Form", "Server Error", "Health Check Failed");
         throw new Error("Our server appears to be offline. Please try again later or contact us directly at support@techvelsolutions.com");
       }
       
@@ -299,17 +302,16 @@ export function Home() {
       console.log("Sending contact form data:", formData);
       const res = await axios.post(`${backendUrl}/contact`, formData, {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*'
         },
-        withCredentials: false,
+        withCredentials: false
       });
   
       console.log("Contact form response:", res.data);
       
       if (res.status === 200) {
-        // Track successful form submission
-        logEvent("Contact Form", "Submit Success", "Form Submitted Successfully");
-        
         setFormStatus({
           message: res.data.message || "Thank you! Your message has been sent successfully. We'll get back to you soon.",
           isError: false,
@@ -321,9 +323,6 @@ export function Home() {
       }
     } catch (err) {
       console.error("Error while sending message:", err?.response?.data || err?.message || err);
-      
-      // Track form submission error
-      logEvent("Contact Form", "Submit Error", err?.response?.data?.message || err?.message || "Unknown Error");
       
       setFormStatus({
         message: err?.response?.data?.message || err?.message || "Failed to send message. Please try again later or email us directly at support@techvelsolutions.com",

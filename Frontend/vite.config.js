@@ -6,4 +6,14 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://techvel-server.vercel.app',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '/api')
+      }
+    }
+  },
 });
