@@ -287,8 +287,7 @@ export function Home() {
         const healthCheck = await axios.get(`${backendUrl}/health`, {
           headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Accept': 'application/json'
           },
           withCredentials: false
         });
@@ -303,8 +302,7 @@ export function Home() {
       const res = await axios.post(`${backendUrl}/contact`, formData, {
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*'
+          'Accept': 'application/json'
         },
         withCredentials: false
       });
