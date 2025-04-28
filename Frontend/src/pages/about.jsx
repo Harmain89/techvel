@@ -10,7 +10,7 @@ import {
   Input,
   Textarea,
 } from "@material-tailwind/react";
-import { FingerPrintIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { FingerPrintIcon, UsersIcon, LightBulbIcon, ShieldCheckIcon, StarIcon, UserGroupIcon, HeartIcon, CheckBadgeIcon } from "@heroicons/react/24/solid";
 import {FaGithub, FaLinkedin } from "react-icons/fa"; // Added Font Awesome imports
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
@@ -18,6 +18,7 @@ import { featuresData, teamData, contactData } from "@/data";
 import axios from "axios";
 import { logEvent } from "@/utils/analytics";
 import { backendUrl } from "@/utils/constants";
+import { useNavigate } from "react-router-dom";
 
 export function About() {
   const [formData, setFormData] = useState({
@@ -30,6 +31,7 @@ export function About() {
     isError: false,
     isSubmitting: false,
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -112,9 +114,8 @@ export function About() {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative bg-profile-background top-0 h-full w-full bg-[url('/img/background-3.png')] bg-cover bg-center scale-105 py-24 px-4 md:px-8">
-        <div className="absolute top-0 h-full w-full bg-black/60" />
-        <div className="container mx-auto relative z-10">
+      <div className="bg-profile-background top-0 h-full w-full bg-[url('/img/different-hero-image.png')] bg-cover bg-center scale-105 py-24 px-4 md:px-8">
+        <div className="container mx-auto mt-20">
           <div className="flex flex-wrap items-center justify-center">
             <div className="w-full text-center lg:w-8/12 mx-auto">
               <Typography variant="h1" color="white" className="mb-6 font-black">
@@ -135,15 +136,18 @@ export function About() {
         <div className="container mx-auto px-4 text-center">
           <Typography variant="h2" className="text-3xl md:text-4xl font-bold mb-8">Our Core Values</Typography>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-gray-100 rounded-xl p-6">
+            <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
+              <LightBulbIcon className="h-10 w-10 text-[#f92628] mb-3" />
               <Typography variant="h5" className="font-bold mb-2">Innovation</Typography>
               <Typography>We embrace creativity and strive to deliver cutting-edge solutions for every client.</Typography>
             </div>
-            <div className="bg-gray-100 rounded-xl p-6">
+            <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
+              <ShieldCheckIcon className="h-10 w-10 text-[#2563eb] mb-3" />
               <Typography variant="h5" className="font-bold mb-2">Integrity</Typography>
               <Typography>We act with honesty, transparency, and respect in all our interactions.</Typography>
             </div>
-            <div className="bg-gray-100 rounded-xl p-6">
+            <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
+              <StarIcon className="h-10 w-10 text-yellow-500 mb-3" />
               <Typography variant="h5" className="font-bold mb-2">Excellence</Typography>
               <Typography>We are committed to delivering the highest quality in everything we do.</Typography>
             </div>
@@ -156,15 +160,18 @@ export function About() {
         <div className="container mx-auto px-4 text-center">
           <Typography variant="h2" className="text-3xl md:text-4xl font-bold mb-8">Why Choose Techvel Solutions?</Typography>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-gray-100 rounded-xl p-6">
+            <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
+              <UserGroupIcon className="h-10 w-10 text-[#2563eb] mb-3" />
               <Typography variant="h5" className="font-bold mb-2">Expert Team</Typography>
               <Typography>Our professionals bring years of experience and a passion for technology to every project.</Typography>
             </div>
-            <div className="bg-gray-100 rounded-xl p-6">
+            <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
+              <HeartIcon className="h-10 w-10 text-[#f92628] mb-3" />
               <Typography variant="h5" className="font-bold mb-2">Client-Centric Approach</Typography>
               <Typography>We listen, understand, and tailor our solutions to meet your unique business needs.</Typography>
             </div>
-            <div className="bg-gray-100 rounded-xl p-6">
+            <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
+              <CheckBadgeIcon className="h-10 w-10 text-green-500 mb-3" />
               <Typography variant="h5" className="font-bold mb-2">Proven Results</Typography>
               <Typography>We have a track record of delivering successful projects that drive real business value.</Typography>
             </div>

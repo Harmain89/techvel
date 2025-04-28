@@ -14,11 +14,13 @@ import {
     MobileNav,
     Collapse,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {  Footer } from "@/widgets/layout";
 
 export function Portfolio() {
     const [activeTab, setActiveTab] = useState("all");
     const [isVisible, setIsVisible] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setIsVisible(true);
@@ -81,6 +83,10 @@ export function Portfolio() {
     const filteredProjects = activeTab === "all"
         ? projects
         : projects.filter(project => project.category === activeTab);
+
+    const handleContactNavigate = () => {
+        window.location.replace('/contact#contact-form-section');
+    };
 
     return (
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
@@ -165,10 +171,25 @@ export function Portfolio() {
                     <Typography className="text-gray-700 mb-8 max-w-2xl mx-auto">
                         We're passionate about creating solutions that drive results. Let's discuss how we can help you achieve your goals.
                     </Typography>
-                    <Button size="lg" color="blue" className="rounded-full px-8">
-                        Get in Touch
-                    </Button>
+                    <div className="flex justify-center w-full">
+                        <div className="relative group">
+                            <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f] shadow-[0_0_16px_4px_rgba(249,38,40,0.4)]">
+                                <button
+                                    className="bg-black text-white rounded-xl px-8 py-3 text-lg font-medium min-w-[200px] transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#f92628] focus:ring-offset-2"
+                                    type="button"
+                                    onClick={handleContactNavigate}
+                                >
+                                    Get Started
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            {/* Footer */}
+            <div className="bg-white">
+                <Footer />
             </div>
         </div>
     );

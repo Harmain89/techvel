@@ -358,18 +358,20 @@ export function Home() {
           </Typography>
 
           <div className="flex justify-center mt-20">
-            <Button 
-              size="lg" 
-              color="white" 
-              className="text-[#f92628] rounded-full px-8 mr-4 hover:bg-[#f92628] hover:text-white transition duration-300 shadow hover:shadow-lg"
-              onClick={() => {
-                if (contactRef.current) {
-                  contactRef.current.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              Quick Discussion
-            </Button>
+            <div className="relative group">
+              <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f] shadow-[0_0_16px_4px_rgba(249,38,40,0.4)]">
+                <button
+                  className="bg-black text-white rounded-xl px-8 py-3 text-lg font-medium min-w-[200px] transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2"
+                  onClick={() => {
+                    if (contactRef.current) {
+                      contactRef.current.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Quick Discussion
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -489,11 +491,11 @@ export function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Process Step 1 */}
             <div className="bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg relative">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold">
+              <div className="absolute -top-4 -left-4 w-12 h-12 text-white rounded-full flex items-center justify-center text-xl font-bold" style={{backgroundColor: '#C41E3A'}}>
                 1
               </div>
-              <div className="mb-4 text-blue-500 mt-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              <div className="mb-4 mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#C41E3A" className="w-12 h-12">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
                 </svg>
               </div>
@@ -507,11 +509,11 @@ export function Home() {
 
             {/* Process Step 2 */}
             <div className="bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg relative">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold">
+              <div className="absolute -top-4 -left-4 w-12 h-12 text-white rounded-full flex items-center justify-center text-xl font-bold" style={{backgroundColor: '#C41E3A'}}>
                 2
               </div>
-              <div className="mb-4 text-blue-500 mt-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              <div className="mb-4 mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#C41E3A" className="w-12 h-12">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
                 </svg>
               </div>
@@ -525,11 +527,11 @@ export function Home() {
 
             {/* Process Step 3 */}
             <div className="bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg relative">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold">
+              <div className="absolute -top-4 -left-4 w-12 h-12 text-white rounded-full flex items-center justify-center text-xl font-bold" style={{backgroundColor: '#C41E3A'}}>
                 3
               </div>
-              <div className="mb-4 text-blue-500 mt-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              <div className="mb-4 mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#C41E3A" className="w-12 h-12">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
                 </svg>
               </div>
@@ -543,11 +545,11 @@ export function Home() {
 
             {/* Process Step 4 */}
             <div className="bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg relative">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold">
+              <div className="absolute -top-4 -left-4 w-12 h-12 text-white rounded-full flex items-center justify-center text-xl font-bold" style={{backgroundColor: '#C41E3A'}}>
                 4
               </div>
-              <div className="mb-4 text-blue-500 mt-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              <div className="mb-4 mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#C41E3A" className="w-12 h-12">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -562,7 +564,7 @@ export function Home() {
         </div>
       </div>
       <div className="container mx-auto px-4 py-20">
-        <div className="bg-[linear-gradient(90deg,_#2563eb,_#f92628,_#2563eb)] bg-[length:200%_100%] bg-left hover:bg-right transition-[background-position] duration-700 ease-in-out rounded-2xl p-12 relative overflow-hidden">
+        <div className="bg-[linear-gradient(90deg,_#2563eb,_#C41E3A,_#2563eb)] bg-[length:200%_100%] bg-left hover:bg-right transition-[background-position] duration-700 ease-in-out rounded-2xl p-12 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
           <div className="relative z-10 text-center">
             <Typography variant="h3" color="white" className="mb-4">
@@ -573,10 +575,10 @@ export function Home() {
               our team is ready to help you achieve digital excellence.
             </Typography>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" color="white" className="text-[#f92628] rounded-full px-8 hover:bg-[#f92628] hover:text-white transition duration-300 shadow hover:shadow-lg" onClick={() => { if (contactRef.current) { contactRef.current.scrollIntoView({ behavior: 'smooth' }); } }}>
-                Get Started
+              <Button size="lg" color="white" className="text-[#C41E3A] rounded-full px-8 hover:bg-[#C41E3A] hover:text-white transition duration-300 shadow hover:shadow-lg" onClick={() => { if (contactRef.current) { contactRef.current.scrollIntoView({ behavior: 'smooth' }); } }}>
+                Contact Us
               </Button>
-              <Button size="lg" variant="outlined" color="white" className="rounded-full px-8 hover:bg-white hover:text-[#f92628] transition duration-300 shadow hover:shadow-lg">
+              <Button size="lg" variant="outlined" color="white" className="rounded-full px-8 hover:bg-white hover:text-[#C41E3A] transition duration-300 shadow hover:shadow-lg">
                 Schedule a Consultation
               </Button>
             </div>
@@ -584,7 +586,7 @@ export function Home() {
         </div>
       </div>
       {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuresData.map(({ color, title, icon, description }) => (
@@ -600,13 +602,13 @@ export function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <div className="bg-blue-gray-50 py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <Typography variant="h3" color="blue-gray" className="mb-4">
+            <Typography variant="h3" style={{ color: '#C41E3A' }} className="mb-4">
               Frequently Asked Questions
             </Typography>
             <Typography className="text-gray-700 max-w-3xl mx-auto">
@@ -630,7 +632,7 @@ export function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>}
               >
-                <AccordionHeader onClick={() => handleAccordionOpen(index + 1)} className="text-blue-gray-900 hover:text-blue-500 transition-colors">
+                <AccordionHeader onClick={() => handleAccordionOpen(index + 1)} className="text-blue-gray-900 hover:text-[#C41E3A] transition-colors">
                   {faq.question}
                 </AccordionHeader>
                 <AccordionBody className="text-gray-700">
@@ -644,19 +646,21 @@ export function Home() {
             <Typography className="text-gray-700 mb-4">
               Still have questions? Contact our team for personalized assistance.
             </Typography>
-            <Button
-              type="button"
-              color="blue"
-              size="lg"
-              className="rounded-full px-8 hover:bg-blue-700 hover:text-white transition duration-300 shadow hover:shadow-lg"
-              onClick={() => {
-                if (contactRef.current) {
-                  contactRef.current.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              Get Started?
-            </Button>
+            <div className="flex justify-center w-full">
+              <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f] shadow-[0_0_16px_4px_rgba(249,38,40,0.4)] mx-auto max-w-xs">
+                <button
+                  type="button"
+                  className="bg-black text-white rounded-xl px-8 py-3 text-lg font-bold transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2 disabled:opacity-60 flex items-center justify-center gap-2"
+                  onClick={() => {
+                    if (contactRef.current) {
+                      contactRef.current.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Get Started?
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -664,61 +668,78 @@ export function Home() {
 
       {/* CONTACT Section */}
       <section ref={contactRef} className="relative bg-white py-20 px-4">
-        <div className="container mx-auto">
-          <PageTitle section="Contact Us" heading="Want to work with us?">
-            Complete this form and we will get back to you in 24 hours.
-          </PageTitle>
-
-          <form className="mx-auto w-full mt-12 lg:w-5/12" onSubmit={handleSubmit}>
-            <div className="mb-8 flex flex-col md:flex-row gap-8">
-              <Input
-                variant="outlined"
-                size="lg"
-                label="Full Name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-              <Input
-                variant="outlined"
-                size="lg"
-                label="Email Address"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
+        <div className="container mx-auto flex justify-center">
+          <div className="w-full max-w-xl bg-white rounded-2xl shadow-2xl p-8 md:p-12 relative">
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-24 h-2 rounded-full bg-[#C41E3A] mb-6"></div>
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-2">Want to work with us?</h2>
+              <p className="text-gray-500 text-lg">Complete this form and we will get back to you in 24 hours.</p>
             </div>
-            <Textarea
-              variant="outlined"
-              size="lg"
-              label="Message"
-              rows={8}
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-            
-            {formStatus.message && (
-              <div className={`mt-4 p-3 rounded-md ${formStatus.isError ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'}`}>
-                {formStatus.message}
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="relative w-full">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#C41E3A]">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                  </span>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    placeholder="Full Name"
+                    className="pl-10 pr-4 py-3 w-full rounded-lg border border-gray-300 focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/30 outline-none transition text-lg bg-gray-50"
+                  />
+                </div>
+                <div className="relative w-full">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#C41E3A]">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 12v1a4 4 0 01-8 0v-1m8 0V8a4 4 0 00-8 0v4m8 0a4 4 0 01-8 0m8 0H8"/></svg>
+                  </span>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="Email Address"
+                    className="pl-10 pr-4 py-3 w-full rounded-lg border border-gray-300 focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/30 outline-none transition text-lg bg-gray-50"
+                  />
+                </div>
               </div>
-            )}
-            
-            <Button
-              variant="gradient"
-              size="lg"
-              className="mt-8"
-              fullWidth
-              type="submit"
-              disabled={formStatus.isSubmitting}
-            >
-              {formStatus.isSubmitting ? "Sending..." : "Send Message"}
-            </Button>
-          </form>
+              <div className="relative">
+                <span className="absolute left-3 top-5 text-[#C41E3A]">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10.5V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2v-4.5M21 10.5l-9 5.25L3 10.5"/></svg>
+                </span>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  placeholder="Message"
+                  rows={6}
+                  className="pl-10 pr-4 py-3 w-full rounded-lg border border-gray-300 focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/30 outline-none transition text-lg bg-gray-50 resize-none"
+                />
+              </div>
+              {formStatus.message && (
+                <div className={`mt-2 p-3 rounded-md text-center text-base font-medium ${formStatus.isError ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'}`}>{formStatus.message}</div>
+              )}
+              <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f] shadow-[0_0_16px_4px_rgba(249,38,40,0.4)] w-full">
+                <button
+                  type="submit"
+                  disabled={formStatus.isSubmitting}
+                  className="bg-black text-white rounded-xl px-8 py-3 text-lg font-bold w-full transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2 disabled:opacity-60 flex items-center justify-center gap-2"
+                >
+                  {formStatus.isSubmitting && (
+                    <svg className="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                    </svg>
+                  )}
+                  {formStatus.isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
 
@@ -793,7 +814,7 @@ const ServiceCard = ({ service, isVisible }) => {
       className={`service-card overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
     >
       <CardBody>
-        <div className="mb-4 text-blue-500">
+        <div className="mb-4" style={{ color: '#C41E3A' }}>
           {renderIcon(service.icon)}
         </div>
         <Typography variant="h5" color="blue-gray" className="mb-2">
@@ -827,7 +848,11 @@ const ServiceCard = ({ service, isVisible }) => {
           </div>
         </div>
         <Link to={`/services/${service.id}`}>
-          <Button fullWidth color="blue" className="flex items-center justify-center gap-2 hover:bg-blue-700 hover:text-white transition duration-300 shadow hover:shadow-lg">
+          <Button
+            fullWidth
+            style={{ backgroundColor: '#C41E3A', borderColor: '#C41E3A' }}
+            className="text-white flex items-center justify-center gap-2 hover:bg-[#C41E3A] hover:text-white transition duration-300 shadow hover:shadow-lg"
+          >
             Learn More
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

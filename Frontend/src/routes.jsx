@@ -3,6 +3,7 @@ import ProjectDetail from "./pages/project-detail";
 import { Services } from "./pages/services";
 import About from "./pages/about";
 import GenAi from "./pages/genai";
+import Contact from "./pages/contact";
 
 export const routes = [
   {
@@ -33,6 +34,12 @@ export const routes = [
     name: "about us",
     path: "/about",
     element: <About />,
+    show: true,
+  },
+  {
+    name: "contact",
+    path: "/contact",
+    element: <Contact />,
     show: true,
   },
   // {

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Navbar as MTNavbar,
   MobileNav,
@@ -52,27 +52,28 @@ export function Navbar({ brandName, routes, action }) {
           <div className="font-bold text-white mb-3">IT Services & Development</div>
           <ul className="space-y-2">
             <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🌐</span> Web Development</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>&lt;/&gt;</span> Software & App Development</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🔗</span> User Interface & User Experience</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>⚗️</span> Quality Assurance</a></li>
-             </ul>
+            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>💻</span> Software & App Development</a></li>
+            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🎨</span> User Interface & User Experience</a></li>
+            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>☁️</span> SaaS</a></li>
+            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🛒</span> E-Commerce </a></li>
+            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🧪</span> Quality Assurance</a></li>
+          </ul>
         </div>
         {/* Advance Technologies */}
         <div>
           <div className="font-bold text-white mb-3">Advance Technologies</div>
           <ul className="space-y-2">
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🤖</span> LLM & Artificial Intelligence</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🌐</span> Internet of Things</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🎮</span> Game Development</a></li>
+            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🤖</span> Gen AI & Artificial Intelligence</a></li>
+            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>📡</span> Internet of Things</a></li>
           </ul>
         </div>
         {/* Rapid Contracts */}
         <div>
           <div className="font-bold text-white mb-3">Rapid Contracts</div>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-blue-600"> MVP Development</a></li>
-            <li><a href="#" className="hover:text-blue-600">Enterprise Product Development</a></li>
-            <li><a href="#" className="hover:text-blue-600">Product Tech Research</a></li>
+            <li><a href="#" className="hover:text-blue-600"><span>🚀</span> MVP Development</a></li>
+            <li><a href="#" className="hover:text-blue-600"><span>🏢</span> Enterprise Solutions</a></li>
+            <li><a href="#" className="hover:text-blue-600"><span>🔍</span> Tech Research </a></li>
           </ul>
         </div>
       </div>
@@ -81,7 +82,7 @@ export function Navbar({ brandName, routes, action }) {
 
   const navList = (
     <ul className="mb-10 mt-2 flex flex-col gap-2 text-inherit lg:mb-10 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      {routes.map(({ name, path, icon, href, target }) => {
+      {routes.filter(({ name }) => name.toLowerCase() !== "contact").map(({ name, path, icon, href, target }) => {
         if (name.toLowerCase() === "services") {
           return (
             <div key={name} className="relative">
@@ -93,7 +94,7 @@ export function Navbar({ brandName, routes, action }) {
                 onMouseEnter={() => setServicesOpen(true)}
                 onClick={() => setServicesOpen((open) => !open)}
               >
-                <span className="flex items-center gap-1 p-1 font-bold hover:text-[#f92628] hover:underline transition duration-200">{name}</span>
+                <span className="flex items-center gap-1 p-1 font-bold hover:text-[#f92628] transition duration-200">{name}</span>
               </Typography>
               {servicesOpen && (
                 <div ref={setDropdownRef}>{servicesDropdown}</div>
@@ -113,7 +114,7 @@ export function Navbar({ brandName, routes, action }) {
               <a
                 href={href}
                 target={target}
-                className="flex items-center gap-1 p-1 font-bold hover:text-[#f92628] hover:underline transition duration-200"
+                className="flex items-center gap-1 p-1 font-bold hover:text-[#f92628] transition duration-200"
               >
                 {icon &&
                   React.createElement(icon, {
@@ -125,7 +126,7 @@ export function Navbar({ brandName, routes, action }) {
               <Link
                 to={path}
                 target={target}
-                className="flex items-center gap-1 p-1 font-bold hover:text-[#f92628] hover:underline transition duration-200"
+                className="flex items-center gap-1 p-1 font-bold hover:text-[#f92628] transition duration-200"
               >
                 {icon &&
                   React.createElement(icon, {
@@ -163,9 +164,11 @@ export function Navbar({ brandName, routes, action }) {
         </div>
         {/* Right: Get Started Button */}
         <div className="hidden gap-2 lg:flex items-center justify-end flex-1">
-          {React.cloneElement(action, {
-            className: "hidden lg:inline-block",
-          })}
+          {React.isValidElement(action)
+            ? React.cloneElement(action, {
+                className: "hidden lg:inline-block",
+              })
+            : null}
         </div>
         <IconButton
           variant="text"
@@ -198,7 +201,7 @@ export function Navbar({ brandName, routes, action }) {
         </div>
         <hr className="mb-4 border-blue-gray-100" />
         <ul className="flex flex-col gap-2 mb-6">
-          {routes.map(({ name, path, href, target }) => {
+          {routes.filter(({ name }) => name.toLowerCase() !== "contact").map(({ name, path, href, target }) => {
             if (name.toLowerCase() === "services") {
               return (
                 <li key={name}>
@@ -262,9 +265,12 @@ export function Navbar({ brandName, routes, action }) {
             );
           })}
         </ul>
-        {React.cloneElement(action, {
-          className: "w-full block mt-0",
-        })}
+        {React.isValidElement(action)
+          ? React.cloneElement(action, {
+              className: "w-full block mt-0",
+              setOpenNav,
+            })
+          : <ContactNavButton setOpenNav={setOpenNav} className="w-full block mt-0" />}
       </MobileNav>
     </MTNavbar>
   );
@@ -272,17 +278,27 @@ export function Navbar({ brandName, routes, action }) {
 
 Navbar.defaultProps = {
   brandName: "Techvel",
-  action: (
+  action: null,
+};
+
+function ContactNavButton({ setOpenNav }) {
+  const navigate = useNavigate();
+  return (
     <a
       href="#"
-      target="_blank"
+      target="_self"
+      onClick={e => {
+        e.preventDefault();
+        navigate('/contact');
+        if (setOpenNav) setOpenNav(false);
+      }}
     >
       <Button variant="gradient" size="sm" fullWidth className="border-2 border-white !important rounded-[10px]">
         Get Started?
       </Button>
     </a>
-  ),
-};
+  );
+}
 
 Navbar.propTypes = {
   brandName: PropTypes.string.isRequired,
