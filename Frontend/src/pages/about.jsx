@@ -228,10 +228,10 @@ export function About() {
                       </div>
                     </div>
                   </div>
-                  <Typography variant="h5" className="font-bold mb-1">
+                  <Typography variant="h5" className="font-extrabold mb-1">
                     {name}
                   </Typography>
-                  <Typography className="text-gray-600">
+                  <Typography className="text-[#f92628] font-bold">
                     {position}
                   </Typography>
                 </CardBody>

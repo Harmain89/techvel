@@ -31,7 +31,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
               ))}
             </div>
           </div>
-          
+
           <div className="w-full lg:w-8/12 flex flex-row justify-between mt-12 lg:mt-0">
             {menus.map(({ name, items }, index) => (
               <div
@@ -88,25 +88,25 @@ Footer.defaultProps = {
   socials: [
     {
       color: "gray",
-      name: "linkedin",
-      path: "https://www.linkedin.com/company/techvel-solutions/about/",
+      name: "instagram",
+      path: "https://www.instagram.com/techvelsolutions/",
     },
     {
       color: "gray",
-      name: "facebook",
-      path: "#",
+      name: "linkedin",
+      path: "https://www.linkedin.com/company/techvel-solutions/about/",
     },
   ],
   menus: [
     {
       name: "Pages",
       items: [
-        { name: "About Us", path: "#" },
+        { name: "About Us", path: "/about" },
         { name: "Blog", path: "#" },
-        {
-          name: "Services",
-          path: "#",
-        },
+        // {
+        //   name: "Services",
+        //   path: "#",
+        // },
       ],
     },
     {

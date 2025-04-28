@@ -343,15 +343,20 @@ export function Home() {
         </div>
         <div className="container mx-auto relative">
           <div className="justify-center items-center">
-            Welcome, <TypingEffect />
+            <TypingEffect />
           </div>
-          <Typography variant="h1" color="white" className="mb-4 text-center text-3xl md:text-6xl font-bold mt-0">
+          {/* <Typography variant="h1" color="white" className="mb-4 text-center text-3xl md:text-6xl font-bold mt-0">
             Welcome, To Innovation.
-          </Typography>
-          <Typography variant="lead" color="white" className="opacity-90 text-center max-w-2xl mx-auto">
+          </Typography> */}
+          <Typography 
+            variant="lead" 
+            color="white" 
+            className="opacity-90 text-center max-w-2xl mx-auto mt-24 sm:mt-0"
+          >
             Comprehensive digital solutions tailored to your unique business needs.
             From concept to deployment, we deliver excellence at every step.
           </Typography>
+
           <div className="flex justify-center mt-20">
             <Button 
               size="lg" 

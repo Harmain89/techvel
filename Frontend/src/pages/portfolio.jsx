@@ -28,58 +28,40 @@ export function Portfolio() {
     const projects = [
         {
             id: 1,
-            title: "Modern E-commerce Platform",
-            description: "A fully responsive e-commerce solution with real-time inventory management",
+            title: "AI-Driven Identity Check",
+            description: "AI-Powered Background Check & Identity Verify.",
             category: "web",
-            image: "/images/portfolio/ecommerce.jpg",
-            technologies: ["React", "Node.js", "MongoDB", "AWS"],
-            link: "#",
+            image: "/img/portfolio/wedissect.png",
+            technologies: ["Aritificial Inteligence (AI)", "Laravel", "Node.js", "Livewire", "GCP", "Pupeeter", "Mysql", "Third Party Services"],
+            link: "https://wedissect.com/",
         },
         {
             id: 2,
-            title: "Financial Dashboard",
-            description: "Interactive analytics dashboard for financial data visualization",
-            category: "dashboard",
-            image: "/images/portfolio/finance.jpg",
-            technologies: ["React", "D3.js", "Material UI", "Firebase"],
-            link: "#",
+            title: "AI Code Reviewer",
+            description: "Get real-time suggestions for code improvements.",
+            category: "web",
+            image: "/img/portfolio/ai-code-reviewer.png",
+            technologies: ["Next.Js", "AI", "Material UI", "UI/UX"],
+            link: "https://ai-code-review.netlify.app/",
         },
         {
             id: 3,
-            title: "Healthcare Management System",
-            description: "Comprehensive solution for hospital resource management",
-            category: "app",
-            image: "/images/portfolio/healthcare.jpg",
-            technologies: ["React Native", "Express", "PostgreSQL", "Azure"],
-            link: "#",
-        },
-        {
-            id: 4,
-            title: "Educational Platform",
-            description: "Online learning platform with interactive courses and assessment tools",
+            title: "Background Image Remover",
+            description: "Instantly remove backgrounds from your photos with AI Background Removal",
             category: "web",
-            image: "/images/portfolio/education.jpg",
-            technologies: ["Next.js", "GraphQL", "MongoDB", "Vercel"],
-            link: "#",
+            image: "/img/portfolio/bg-remover.png",
+            technologies: ["React", "Express", "NodeJs", "MongoDB", "Vercel", "Third Party Service", "Clerk", "Google Authentication"],
+            link: "https://background-removal-liart.vercel.app",
         },
         {
-            id: 5,
-            title: "Real Estate Listing App",
-            description: "Mobile application for property listings with virtual tours",
-            category: "app",
-            image: "/images/portfolio/realestate.jpg",
-            technologies: ["React Native", "Node.js", "AWS", "Google Maps API"],
-            link: "#",
+            id: 3,
+            title: "E-Shoe Store",
+            description: "Displays products with appealing imagery.",
+            category: "web",
+            image: "/img/portfolio/e-show-store.png",
+            technologies: ["React", "Express", "NodeJs", "MongoDB", "Vercel", "JWT", "Responsive UI", "UI/UX", "E-commerce"],
+            link: "https://e-shoe-store.vercel.app/",
         },
-        {
-            id: 6,
-            title: "Analytics Dashboard",
-            description: "Customer behavior analysis dashboard with advanced filtering  and monitoring",
-            category: "dashboard",
-            image: "/images/portfolio/analytics.jpg",
-            technologies: ["React", "Redux", "Node.js", "MongoDB"],
-            link: "#",
-        }
     ];
 
     // Categories for filtering
@@ -103,8 +85,8 @@ export function Portfolio() {
     return (
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             {/* Hero Section */}
-            <div className="bg-profile-background top-0 h-full w-full bg-[url('/img/background-3.png')] bg-cover bg-center scale-105 py-24 px-4 md:px-8">
-                <div className="container mx-auto">
+            <div className="bg-profile-background top-0 h-full w-full bg-[url('/img/different-hero-image.png')] bg-cover bg-center scale-105 py-24 px-4 md:px-8">
+                <div className="container mx-auto mt-20">
                     <Typography variant="h1" color="white" className="mb-4 text-center">
                         Our Portfolio
                     </Typography>
@@ -238,7 +220,7 @@ const ProjectCard = ({ project }) => {
                 <Link to={'/explore'}>
                     <Button
                         variant="text"
-                        color="blue"
+                        color="red"
                         className="flex items-center gap-2 p-0"
                     >
                         Explore Details

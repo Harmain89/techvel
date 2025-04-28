@@ -59,11 +59,22 @@ const TypingEffect = () => {
     return () => clearTimeout(timeout);
   }, [currentIndex, isDeleting, currentPhraseIndex]);
 
+  // Find the longest possible text to determine height
+  const longestText = constantText + changingTexts.reduce(
+    (longest, current) => (current.length > longest.length ? current : longest),
+    ""
+  );
+
   return (
-    <Typography variant="h1" color="white" className="mb-4 text-center">
-      {displayedText}
-      <span className="animate-pulse">|</span>
-    </Typography>
+    <div className="h-24 md:h-28 flex items-center justify-center">
+      <Typography variant="h1" color="white" className="text-center">
+        {displayedText}
+        <span className="animate-pulse">|</span>
+      </Typography>
+      
+      {/* Hidden element to maintain consistent height */}
+      <div className="hidden">{longestText}</div>
+    </div>
   );
 };
 

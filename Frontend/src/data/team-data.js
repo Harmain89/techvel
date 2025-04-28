@@ -1,8 +1,8 @@
 export const teamData = [
   {
-    img: "/imran.jpeg",
-    name: "Imran",
-    position: "Web Developer",
+    img: "/img/team/imran.jpeg",
+    name: "Imran Abbasi",
+    position: "CEO & Founder",
     socials: [
       {
         color: "light-blue",
@@ -20,40 +20,26 @@ export const teamData = [
     ],
   },
   {
-    img: "/img/team-1.jpg",
+    img: "/img/team/harmain-pic.jpg",
     name: "Harmain Rizwan",
     position: "Development Lead",
     socials: [
       {
-        color: "light-blue",
-        name: "twitter",
-      },
-      {
         color: "blue",
         name: "linkedin",
-      },
-      {
-        color: "pink",
-        name: "dribbble",
+        url: "https://www.linkedin.com/in/harmainrizwan",
       },
     ],
   },
   {
-    img: "/img/team-1.jpg",
-    name: "Ali",
+    img: "/img/team/ali-pic.jpg",
+    name: "Ali Aijaz",
     position: "Project Manager",
     socials: [
       {
         color: "light-blue",
-        name: "twitter",
-      },
-      {
-        color: "blue",
         name: "linkedin",
-      },
-      {
-        color: "pink",
-        name: "dribbble",
+        url: "https://www.linkedin.com/in/ali-aijaz-535873234",
       },
     ],
   },
