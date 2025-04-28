@@ -31,9 +31,13 @@ export function Footer({ title, description, socials, menus, copyright }) {
               ))}
             </div>
           </div>
+          
           <div className="w-full lg:w-8/12 flex flex-row justify-between mt-12 lg:mt-0">
-            {menus.map(({ name, items }) => (
-              <div key={name} className="px-4">
+            {menus.map(({ name, items }, index) => (
+              <div
+                key={name}
+                className={`px-4 ${index >= menus.length - 2 ? 'ml-auto' : ''}`}
+              >
                 <Typography
                   variant="small"
                   color="white"
@@ -59,6 +63,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
               </div>
             ))}
           </div>
+
         </div>
         <hr className="my-6 border-gray-300" />
         <div className="flex flex-wrap items-center justify-center md:justify-between">
