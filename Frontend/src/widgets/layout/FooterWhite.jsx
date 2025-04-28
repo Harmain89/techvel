@@ -3,19 +3,19 @@ import { Typography, IconButton } from "@material-tailwind/react";
 
 const year = new Date().getFullYear();
 
-export function Footer({ title, description, socials, menus, copyright }) {
+export function FooterWhite({ title, description, socials, menus, copyright }) {
   return (
-    <footer className="relative px-4 pt-8 pb-6 bg-[#0a0606]">
+    <footer className="relative px-4 pt-8 pb-6 bg-transparent">
       <div className="container mx-auto">
-        <div className="flex flex-wrap flex-row justify-between items-start pt-6 text-left">
-          <div className="w-full lg:w-4/12 px-4 flex flex-col justify-center">
+        <div className="flex flex-wrap pt-6 text-center lg:text-left">
+          <div className="w-full px-4 lg:w-6/12">
             <Typography variant="h4" className="mb-4" color="white">
               {title}
             </Typography>
-            <Typography className="font-normal text-white lg:w-full">
+            <Typography className="font-normal text-white lg:w-2/5">
               {description}
             </Typography>
-            <div className="mt-6 mb-8 flex gap-2 md:mb-0 lg:justify-start">
+            <div className="mx-auto mt-6 mb-8 flex justify-center gap-2 md:mb-0 lg:justify-start">
               {socials.map(({ color, name, path }) => (
                 <a
                   key={name}
@@ -31,9 +31,9 @@ export function Footer({ title, description, socials, menus, copyright }) {
               ))}
             </div>
           </div>
-          <div className="w-full lg:w-8/12 flex flex-row justify-between mt-12 lg:mt-0">
+          <div className="mx-auto mt-12 grid w-max grid-cols-2 gap-24 lg:mt-0">
             {menus.map(({ name, items }) => (
-              <div key={name} className="px-4">
+              <div key={name}>
                 <Typography
                   variant="small"
                   color="white"
@@ -60,7 +60,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
             ))}
           </div>
         </div>
-        <hr className="my-6 border-gray-300" />
+        <hr className="my-6 border-gray-600" />
         <div className="flex flex-wrap items-center justify-center md:justify-between">
           <div className="mx-auto w-full px-4 text-center">
             <Typography
@@ -76,7 +76,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
   );
 }
 
-Footer.defaultProps = {
+FooterWhite.defaultProps = {
   title: "Techvel Solutions",
   description:
     "Fueling innovation through cutting-edge technology, Techvel Solutions helps you transform ideas into impactful digital experiences that stand the test of time.",
@@ -137,7 +137,7 @@ Footer.defaultProps = {
   ),
 };
 
-Footer.propTypes = {
+FooterWhite.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   socials: PropTypes.arrayOf(PropTypes.object),
@@ -145,6 +145,6 @@ Footer.propTypes = {
   copyright: PropTypes.node,
 };
 
-Footer.displayName = "/src/widgets/layout/footer.jsx";
+FooterWhite.displayName = "/src/widgets/layout/FooterWhite.jsx";
 
-export default Footer;
+export default FooterWhite; 

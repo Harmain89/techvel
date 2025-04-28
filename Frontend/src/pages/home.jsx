@@ -333,7 +333,7 @@ export function Home() {
   return (
     <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Hero Section */}
-      <div className="bg-[url('/img/bg-8.png')] bg-cover bg-center pt-20 md:pt-12 pb-12 md:pb-32 px-4 md:px-8 relative overflow-hidden md:ml-[-43px]">
+      <div className="bg-[url('/img/bg-8.png')] bg-cover bg-center pt-24 md:pt-24 pb-12 md:pb-32 px-4 md:px-8 relative overflow-hidden md:ml-[-43px]">
         <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
         {/* Logo and burger menu row */}
         <div className="flex items-center justify-between pt-4 pb-2 md:pt-8 md:pb-4">
@@ -352,21 +352,18 @@ export function Home() {
             Comprehensive digital solutions tailored to your unique business needs.
             From concept to deployment, we deliver excellence at every step.
           </Typography>
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center mt-20">
             <Button 
               size="lg" 
               color="white" 
-              className="text-[#f92628] rounded-full px-8 mr-4"
+              className="text-[#f92628] rounded-full px-8 mr-4 hover:bg-[#f92628] hover:text-white transition duration-300 shadow hover:shadow-lg"
               onClick={() => {
                 if (contactRef.current) {
                   contactRef.current.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
             >
-              Get Started
-            </Button>
-            <Button size="lg" variant="outlined" color="white" className="rounded-full px-8">
-              Learn More
+              Quick Discussion
             </Button>
           </div>
         </div>
@@ -571,10 +568,10 @@ export function Home() {
               our team is ready to help you achieve digital excellence.
             </Typography>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" color="white" className="text-[#f92628] rounded-full px-8" onClick={() => { if (contactRef.current) { contactRef.current.scrollIntoView({ behavior: 'smooth' }); } }}>
+              <Button size="lg" color="white" className="text-[#f92628] rounded-full px-8 hover:bg-[#f92628] hover:text-white transition duration-300 shadow hover:shadow-lg" onClick={() => { if (contactRef.current) { contactRef.current.scrollIntoView({ behavior: 'smooth' }); } }}>
                 Get Started
               </Button>
-              <Button size="lg" variant="outlined" color="white" className="rounded-full px-8">
+              <Button size="lg" variant="outlined" color="white" className="rounded-full px-8 hover:bg-white hover:text-[#f92628] transition duration-300 shadow hover:shadow-lg">
                 Schedule a Consultation
               </Button>
             </div>
@@ -643,18 +640,18 @@ export function Home() {
               Still have questions? Contact our team for personalized assistance.
             </Typography>
             <Button
-  type="button"
-  color="blue"
-  size="lg"
-  className="rounded-full px-8"
-  onClick={() => {
-    if (contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }}
->
-  Get Started?
-</Button>
+              type="button"
+              color="blue"
+              size="lg"
+              className="rounded-full px-8 hover:bg-blue-700 hover:text-white transition duration-300 shadow hover:shadow-lg"
+              onClick={() => {
+                if (contactRef.current) {
+                  contactRef.current.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              Get Started?
+            </Button>
           </div>
         </div>
       </div>
@@ -825,7 +822,7 @@ const ServiceCard = ({ service, isVisible }) => {
           </div>
         </div>
         <Link to={`/services/${service.id}`}>
-          <Button fullWidth color="blue" className="flex items-center justify-center gap-2">
+          <Button fullWidth color="blue" className="flex items-center justify-center gap-2 hover:bg-blue-700 hover:text-white transition duration-300 shadow hover:shadow-lg">
             Learn More
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

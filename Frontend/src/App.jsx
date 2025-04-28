@@ -4,6 +4,7 @@ import { Navbar } from "@/widgets/layout";
 import routes from "@/routes";
 import { Button } from "@material-tailwind/react";
 import { initGA, logPageView } from "@/utils/analytics";
+import ScrollToTopButton from "./widgets/layout/ScrollToTopButton";
 
 function App() {
   const location = useLocation();
@@ -34,6 +35,7 @@ function App() {
         )}
         <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
+      <ScrollToTopButton />
     </div>
   );
 }

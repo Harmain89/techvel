@@ -2,6 +2,7 @@ import { Home, Portfolio, Profile, SignIn, SignUp } from "@/pages";
 import ProjectDetail from "./pages/project-detail";
 import { Services } from "./pages/services";
 import About from "./pages/about";
+import GenAi from "./pages/genai";
 
 export const routes = [
   {
@@ -16,22 +17,22 @@ export const routes = [
     element: <Portfolio />,
     show: true,
   },
-  // {
-  //   name: "Services",
-  //   path: "/services",
-  //   element: <Services />,
-  //   show: false,
-  // },
+  {
+    name: "services",
+    path: "/services",
+    element: <Services />,
+    show: true,
+  },
+  {
+    name: "gen ai",
+    path: "/gen-ai",
+    element: <GenAi />,
+    show: true,
+  },
   {
     name: "about us",
     path: "/about",
     element: <About />,
-    show: true,
-  },
-  {
-    name: "Profile",
-    path: "/profile",
-    element: <Profile />,
     show: true,
   },
   // {

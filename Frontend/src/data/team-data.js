@@ -1,6 +1,6 @@
 export const teamData = [
   {
-    img: "/img/team-1.jpg",
+    img: "/imran.jpeg",
     name: "Imran",
     position: "Web Developer",
     socials: [
@@ -11,6 +11,7 @@ export const teamData = [
       {
         color: "blue",
         name: "linkedin",
+        url: "https://www.linkedin.com/in/imran-abbasi-30bb7b198/"
       },
       {
         color: "pink",
@@ -21,7 +22,7 @@ export const teamData = [
   {
     img: "/img/team-1.jpg",
     name: "Harmain Rizwan",
-    position: "Marketing Specialist",
+    position: "Development Lead",
     socials: [
       {
         color: "light-blue",
@@ -40,7 +41,7 @@ export const teamData = [
   {
     img: "/img/team-1.jpg",
     name: "Ali",
-    position: "UI/UX Designer",
+    position: "Project Manager",
     socials: [
       {
         color: "light-blue",

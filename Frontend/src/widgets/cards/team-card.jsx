@@ -9,7 +9,7 @@ export function TeamCard({ img, name, position, socials }) {
         alt={name}
         size="xxl"
         variant="rounded"
-        className="h-full w-full shadow-lg shadow-gray-500/25"
+        className="h-48 w-full object-cover shadow-lg shadow-gray-500/25"
       />
       <Typography variant="h5" color="blue-gray" className="mt-6 mb-1">
         {name}
