@@ -162,8 +162,20 @@ export function Navbar({ brandName, routes, action }) {
         <div className="hidden lg:flex flex-[2] justify-center items-center">
           <ul className="flex flex-row gap-6 items-center mb-0 mt-0">{navList.props.children}</ul>
         </div>
-        {/* Right: Get Started Button */}
+        {/* Right: Contact Us and Get Started Buttons */}
         <div className="hidden gap-2 lg:flex items-center justify-end flex-1">
+          <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f] shadow-[0_0_16px_4px_rgba(249,38,40,0.4)]">
+            <button
+              className="bg-black text-white rounded-xl px-6 py-2 text-base font-bold transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2"
+              onClick={() => {
+                window.location.href = '/contact#contact-form-section';
+              }}
+              type="button"
+              style={{ minWidth: '140px' }}
+            >
+              Contact Us
+            </button>
+          </div>
           {React.isValidElement(action)
             ? React.cloneElement(action, {
                 className: "hidden lg:inline-block",
@@ -271,6 +283,20 @@ export function Navbar({ brandName, routes, action }) {
               setOpenNav,
             })
           : <ContactNavButton setOpenNav={setOpenNav} className="w-full block mt-0" />}
+        <div className="w-full flex justify-center mt-2">
+          <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f] shadow-[0_0_16px_4px_rgba(249,38,40,0.4)] w-full max-w-xs">
+            <button
+              type="button"
+              className="bg-black text-white rounded-xl px-8 py-3 text-lg font-bold w-full transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2 disabled:opacity-60 flex items-center justify-center gap-2"
+              onClick={() => {
+                setOpenNav(false);
+                window.location.href = '/contact#contact-form-section';
+              }}
+            >
+              Contact Us
+            </button>
+          </div>
+        </div>
       </MobileNav>
     </MTNavbar>
   );

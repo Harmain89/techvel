@@ -4,6 +4,7 @@ import { Services } from "./pages/services";
 import About from "./pages/about";
 import GenAi from "./pages/genai";
 import Contact from "./pages/contact";
+import WebDev from "./pages/webdev";
 
 export const routes = [
   {
@@ -42,6 +43,7 @@ export const routes = [
     element: <Contact />,
     show: true,
   },
+ 
   // {
   //   name: "Sign In",
   //   path: "/sign-in",

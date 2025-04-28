@@ -70,6 +70,7 @@ export function Home() {
     { value: "design", label: "UI/UX Design" },
     { value: "mobile", label: "Mobile Apps" },
     { value: "consulting", label: "Tech Consulting" },
+    
   ];
 
   // Services data
@@ -421,7 +422,7 @@ export function Home() {
               <TabsBody className="mt-12">
                 {categories.map(({ value }) => (
                   <TabPanel key={value} value={value} className="p-0">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
                       {services
                         .filter(service => service.category === value)
                         .map((service) => (
@@ -575,10 +576,18 @@ export function Home() {
               our team is ready to help you achieve digital excellence.
             </Typography>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" color="white" className="text-[#C41E3A] rounded-full px-8 hover:bg-[#C41E3A] hover:text-white transition duration-300 shadow hover:shadow-lg" onClick={() => { if (contactRef.current) { contactRef.current.scrollIntoView({ behavior: 'smooth' }); } }}>
-                Contact Us
-              </Button>
-              <Button size="lg" variant="outlined" color="white" className="rounded-full px-8 hover:bg-white hover:text-[#C41E3A] transition duration-300 shadow hover:shadow-lg">
+         
+              <Button
+                size="lg"
+                variant="outlined"
+                color="white"
+                className="rounded-full px-8 hover:bg-white hover:text-[#C41E3A] transition duration-300 shadow hover:shadow-lg"
+                onClick={() => {
+                  if (contactRef.current) {
+                    contactRef.current.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 Schedule a Consultation
               </Button>
             </div>
@@ -811,20 +820,20 @@ const ServiceCard = ({ service, isVisible }) => {
   return (
     <Card
       id={`service-${service.id}`}
-      className={`service-card overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      className={`service-card overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} flex flex-col h-full`}
     >
-      <CardBody>
+      <CardBody className="flex flex-col h-full">
         <div className="mb-4" style={{ color: '#C41E3A' }}>
           {renderIcon(service.icon)}
         </div>
-        <Typography variant="h5" color="blue-gray" className="mb-2">
+        <Typography variant="h5" color="#C41E3A" className="mb-2">
           {service.title}
         </Typography>
         <Typography className="text-gray-700 mb-4">
           {service.description}
         </Typography>
         <div className="mb-4">
-          <Typography variant="small" className="text-blue-gray-700 font-semibold mb-2">
+          <Typography variant="small" style={{ color: '#C41E3A' }} className="font-semibold mb-2">
             Key Features:
           </Typography>
           <ul className="list-disc pl-5 text-gray-700">
@@ -836,29 +845,31 @@ const ServiceCard = ({ service, isVisible }) => {
           </ul>
         </div>
         <div className="mb-6">
-          <Typography variant="small" className="text-blue-gray-700 font-semibold mb-2">
+          <Typography variant="small" className="font-semibold mb-2 text-black">
             Technologies:
           </Typography>
           <div className="flex flex-wrap gap-2">
             {service.technologies.map((tech, index) => (
-              <span key={index} className="bg-blue-gray-50 px-3 py-1 rounded-full text-sm text-blue-gray-700">
+              <span key={index} className="bg-gray-200 px-3 py-1 rounded-full text-sm text-black">
                 {tech}
               </span>
             ))}
           </div>
         </div>
-        <Link to={`/services/${service.id}`}>
-          <Button
-            fullWidth
-            style={{ backgroundColor: '#C41E3A', borderColor: '#C41E3A' }}
-            className="text-white flex items-center justify-center gap-2 hover:bg-[#C41E3A] hover:text-white transition duration-300 shadow hover:shadow-lg"
-          >
-            Learn More
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
-          </Button>
-        </Link>
+        <div className="mt-auto">
+          <Link to={`/services/${service.id}`}>
+            <Button
+              fullWidth
+              style={{ backgroundColor: '#C41E3A', borderColor: '#C41E3A' }}
+              className="text-white flex items-center justify-center gap-2 hover:bg-[#C41E3A] hover:text-white transition duration-300 shadow hover:shadow-lg"
+            >
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Button>
+          </Link>
+        </div>
       </CardBody>
     </Card>
   );
