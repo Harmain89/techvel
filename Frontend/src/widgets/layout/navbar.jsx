@@ -18,6 +18,8 @@ export function Navbar({ brandName, routes, action }) {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [dropdownRef, setDropdownRef] = useState(null);
 
+  const navigate = useNavigate();
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -167,9 +169,7 @@ export function Navbar({ brandName, routes, action }) {
           <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f] shadow-[0_0_16px_4px_rgba(249,38,40,0.4)]">
             <button
               className="bg-black text-white rounded-xl px-6 py-2 text-base font-bold transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2"
-              onClick={() => {
-                window.location.href = '/contact#contact-form-section';
-              }}
+              onClick={() => navigate('/contact#contact-form-section')}
               type="button"
               style={{ minWidth: '140px' }}
             >
@@ -290,7 +290,7 @@ export function Navbar({ brandName, routes, action }) {
               className="bg-black text-white rounded-xl px-8 py-3 text-lg font-bold w-full transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2 disabled:opacity-60 flex items-center justify-center gap-2"
               onClick={() => {
                 setOpenNav(false);
-                window.location.href = '/contact#contact-form-section';
+                navigate('/contact#contact-form-section');
               }}
             >
               Contact Us
@@ -309,21 +309,7 @@ Navbar.defaultProps = {
 
 function ContactNavButton({ setOpenNav }) {
   const navigate = useNavigate();
-  return (
-    <a
-      href="#"
-      target="_self"
-      onClick={e => {
-        e.preventDefault();
-        navigate('/contact');
-        if (setOpenNav) setOpenNav(false);
-      }}
-    >
-      <Button variant="gradient" size="sm" fullWidth className="border-2 border-white !important rounded-[10px]">
-        Get Started?
-      </Button>
-    </a>
-  );
+  return null;
 }
 
 Navbar.propTypes = {
