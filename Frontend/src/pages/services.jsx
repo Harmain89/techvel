@@ -30,6 +30,7 @@ export function Services() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "Services | Techvel Solutions";
     // Add scroll effect for cards
     const observer = new IntersectionObserver(
       (entries) => {

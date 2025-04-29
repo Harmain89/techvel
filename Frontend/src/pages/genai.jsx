@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Footer, PageTitle } from "@/widgets/layout";
 import { Button, Typography, Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
@@ -71,6 +71,10 @@ export default function GenAi() {
     navigate('/contact');
     setTimeout(() => window.scrollTo(0, 0), 0);
   };
+
+  useEffect(() => {
+    document.title = "Gen AI | Techvel Solutions";
+  }, []);
 
   return (
     <div className="bg-white min-h-screen text-blue-gray-900">

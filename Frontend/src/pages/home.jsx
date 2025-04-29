@@ -57,6 +57,10 @@ export function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    document.title = "Home | Techvel Solutions";
+  }, []);
+
   const handleAccordionOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
@@ -549,7 +553,7 @@ export function Home() {
               </div>
               <div className="mb-4 mt-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#C41E3A" className="w-12 h-12">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
                 </svg>
               </div>
               <Typography variant="h5" color="blue-gray" className="mb-2">
@@ -592,24 +596,69 @@ export function Home() {
           </div>
         </div>
       </div>
-      {/* Testimonials Section */}
-      {/* <section className="py-20 bg-white">
+
+      {/* Statistics Section */}
+      <div className="bg-white py-20 px-4">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuresData.map(({ color, title, icon, description }) => (
-              <FeatureCard
-                key={title}
-                color={color}
-                title={title}
-                icon={React.createElement(icon, {
-                  className: "w-5 h-5 text-white",
-                })}
-                description={description}
-              />
-            ))}
+          <div className="text-center mb-16">
+            <Typography variant="h3" color="blue-gray" className="mb-4">
+              Our Commitment to Excellence
+            </Typography>
+            <Typography className="text-gray-700 max-w-3xl mx-auto">
+              We're building our legacy on innovation, quality, and client satisfaction.
+              Here's what drives us forward.
+            </Typography>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Stat 1 */}
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300">
+              <div className="text-4xl font-bold text-[#C41E3A] mb-2">100%</div>
+              <Typography variant="h6" color="blue-gray" className="mb-2">
+                Quality Focus
+              </Typography>
+              <Typography className="text-gray-600">
+                Dedicated to delivering excellence in every project
+              </Typography>
+        </div>
+
+            {/* Stat 2 */}
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300">
+              <div className="text-4xl font-bold text-[#C41E3A] mb-2">24/7</div>
+              <Typography variant="h6" color="blue-gray" className="mb-2">
+                Support Available
+              </Typography>
+              <Typography className="text-gray-600">
+                Round-the-clock assistance for our clients
+              </Typography>
+            </div>
+
+            {/* Stat 3 */}
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300">
+              <div className="text-4xl font-bold text-[#C41E3A] mb-2">3+</div>
+              <Typography variant="h6" color="blue-gray" className="mb-2">
+                Tech Experts
+              </Typography>
+              <Typography className="text-gray-600">
+                Skilled professionals ready to serve you
+              </Typography>
+            </div>
+
+            {/* Stat 4 */}
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300">
+              <div className="text-4xl font-bold text-[#C41E3A] mb-2">5+</div>
+              <Typography variant="h6" color="blue-gray" className="mb-2">
+                Services
+              </Typography>
+              <Typography className="text-gray-600">
+                Comprehensive digital solutions for your needs
+              </Typography>
+            </div>
           </div>
         </div>
-      </section> */}
+      </div>
+
+    
 
       {/* FAQ Section */}
       <div className="bg-blue-gray-50 py-20 px-4">
@@ -806,7 +855,7 @@ const ServiceCard = ({ service, isVisible }) => {
       // Add more icons as needed for all your service types
       default: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.343 1.087.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       )

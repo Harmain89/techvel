@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Input, Textarea, Button } from "@material-tailwind/react";
 import { PageTitle, Footer } from "@/widgets/layout";
 import axios from "axios";
@@ -8,6 +8,10 @@ const backendUrl = import.meta.env.DEV ? '/api' : 'https://techvel-server.vercel
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [formStatus, setFormStatus] = useState({ message: "", isError: false, isSubmitting: false });
+
+  useEffect(() => {
+    document.title = "Contact | Techvel Solutions";
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

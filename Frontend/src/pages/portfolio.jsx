@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     Card,
     CardHeader,
@@ -21,6 +21,10 @@ export function Portfolio() {
     const [activeTab, setActiveTab] = useState("all");
     const [isVisible, setIsVisible] = useState(true);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        document.title = "Portfolio | Techvel Solutions";
+    }, []);
 
     // Portfolio data
     const projects = [
