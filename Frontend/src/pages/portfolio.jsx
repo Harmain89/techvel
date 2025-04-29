@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
     Card,
     CardHeader,
@@ -19,12 +19,8 @@ import {  Footer } from "@/widgets/layout";
 
 export function Portfolio() {
     const [activeTab, setActiveTab] = useState("all");
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setIsVisible(true);
-    }, []);
 
     // Portfolio data
     const projects = [
@@ -85,11 +81,12 @@ export function Portfolio() {
         : projects.filter(project => project.category === activeTab);
 
     const handleContactNavigate = () => {
-        window.location.replace('/contact#contact-form-section');
+        navigate('/contact');
+        setTimeout(() => window.scrollTo(0, 0), 0);
     };
 
     return (
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="opacity-100 transition-all duration-300">
             {/* Hero Section */}
             <div className="bg-profile-background top-0 h-full w-full bg-[url('/img/different-hero-image.png')] bg-cover bg-center scale-105 py-24 px-4 md:px-8">
                 <div className="container mx-auto mt-20">
@@ -175,7 +172,7 @@ export function Portfolio() {
                         <div className="relative group">
                             <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f] shadow-[0_0_16px_4px_rgba(249,38,40,0.4)]">
                                 <button
-                                    className="bg-black text-white rounded-xl px-8 py-3 text-lg font-medium min-w-[200px] transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#f92628] focus:ring-offset-2"
+                                    className="bg-black text-white rounded-xl px-8 py-3 text-lg font-medium min-w-[200px] transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2"
                                     type="button"
                                     onClick={handleContactNavigate}
                                 >

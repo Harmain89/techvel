@@ -49,7 +49,7 @@ export function FooterWhite({ title, description, socials, menus, copyright }) {
                         href={item.path}
                         rel="noreferrer"
                         variant="small"
-                        className="mb-2 block font-normal text-white hover:text-[#f92628] transition-colors"
+                        className="mb-2 block font-normal text-white hover:text-[#C41E3A] transition-colors"
                       >
                         {item.name}
                       </Typography>
@@ -127,7 +127,7 @@ FooterWhite.defaultProps = {
       by{" "}
       <a
         href="#"
-        className="text-white transition-colors hover:text-[#f92628]"
+        className="text-white transition-colors hover:text-[#C41E3A]"
       >
         <span className="font-bold">
           {"</>"} Developers

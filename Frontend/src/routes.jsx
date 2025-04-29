@@ -9,7 +9,7 @@ import WebDev from "./pages/webdev";
 export const routes = [
   {
     name: "home",
-    path: "/home",
+    path: "/",
     element: <Home />,
     show: true,
   },
@@ -43,12 +43,12 @@ export const routes = [
     element: <Contact />,
     show: true,
   },
-  {
-    name: "detail",
-    path: "/explore",
-    element: <ProjectDetail />,
-    show: true,
-  },
+  // {
+  //   name: "detail",
+  //   path: "/explore",
+  //   element: <ProjectDetail />,
+  //   show: true,
+  // },
  
   // {
   //   name: "Sign In",

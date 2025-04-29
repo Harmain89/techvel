@@ -28,7 +28,6 @@ const backendUrl = import.meta.env.DEV ? '/api' : 'https://techvel-server.vercel
 
 export function Home() {
   const [activeTab, setActiveTab] = useState("development");
-  const [isVisible, setIsVisible] = useState(false);
   const [open, setOpen] = useState(0);
   const [visibleCards, setVisibleCards] = useState({});
 
@@ -36,8 +35,6 @@ export function Home() {
   const contactRef = useRef(null);
 
   useEffect(() => {
-    setIsVisible(true);
-
     // Add scroll effect for cards
     const observer = new IntersectionObserver(
       (entries) => {
@@ -332,7 +329,7 @@ export function Home() {
   };  
 
   return (
-    <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className="opacity-100 transition-all duration-300">
       {/* Hero Section */}
       <div className="bg-[url('/img/bg-8.png')] bg-cover bg-center pt-24 md:pt-24 pb-12 md:pb-32 px-4 md:px-8 relative overflow-hidden md:ml-[-43px]">
         <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
@@ -457,15 +454,16 @@ export function Home() {
               <TabsBody>
                 {categories.map(({ value }) => (
                   <TabPanel key={value} value={value} className="p-0">
-                    <div className="grid grid-cols-1 gap-6">
+                    <div className="flex flex-row overflow-x-auto gap-x-4 mt-6 pb-4 snap-x snap-mandatory">
                       {services
                         .filter(service => service.category === value)
                         .map((service) => (
-                          <ServiceCard
-                            key={service.id}
-                            service={service}
-                            isVisible={!!visibleCards[`service-${service.id}`]}
-                          />
+                          <div key={service.id} className="min-w-[90vw] max-w-xs snap-center">
+                            <ServiceCard
+                              service={service}
+                              isVisible={!!visibleCards[`service-${service.id}`]}
+                            />
+                          </div>
                         ))}
                     </div>
                   </TabPanel>
@@ -565,7 +563,7 @@ export function Home() {
         </div>
       </div>
       <div className="container mx-auto px-4 py-20">
-        <div className="bg-[linear-gradient(90deg,_#000000,_#f92628,_#000000)] bg-[length:200%_100%] bg-left hover:bg-right transition-[background-position] duration-700 ease-in-out rounded-2xl p-12 relative overflow-hidden">
+        <div className="bg-[linear-gradient(90deg,_#000000,_#C41E3A,_#000000)] bg-[length:200%_100%] bg-left hover:bg-right transition-[background-position] duration-700 ease-in-out rounded-2xl p-12 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
           <div className="relative z-10 text-center">
             <Typography variant="h3" color="white" className="mb-4">
@@ -820,7 +818,7 @@ const ServiceCard = ({ service, isVisible }) => {
   return (
     <Card
       id={`service-${service.id}`}
-      className={`service-card overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} flex flex-col h-full`}
+      className={`service-card overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} flex flex-col h-full border-2 border-[#C41E3A] shadow-2xl rounded-xl bg-white`}
     >
       <CardBody className="flex flex-col h-full">
         <div className="mb-4" style={{ color: '#C41E3A' }}>
@@ -856,7 +854,7 @@ const ServiceCard = ({ service, isVisible }) => {
             ))}
           </div>
         </div>
-        <div className="mt-auto">
+        {/* <div className="mt-auto">
           <Link to={`/services/${service.id}`}>
             <Button
               fullWidth
@@ -869,7 +867,7 @@ const ServiceCard = ({ service, isVisible }) => {
               </svg>
             </Button>
           </Link>
-        </div>
+        </div> */}
       </CardBody>
     </Card>
   );

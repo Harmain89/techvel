@@ -111,6 +111,8 @@ export function About() {
     linkedin: FaLinkedin
   };
 
+  const iconColor = "#C41E3A";
+
   return (
     <>
       {/* Hero Section */}
@@ -137,17 +139,17 @@ export function About() {
           <Typography variant="h2" className="text-3xl md:text-4xl font-bold mb-8">Our Core Values</Typography>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
-              <LightBulbIcon className="h-10 w-10 text-[#f92628] mb-3" />
+              <svg width="40" height="40" fill="none" stroke={iconColor} strokeWidth="2" viewBox="0 0 40 40" className="mb-3"><path d="M20 8a8 8 0 0 1 8 8c0 4-4 8-8 16-4-8-8-12-8-16a8 8 0 0 1 8-8z"/><circle cx="20" cy="16" r="3"/></svg>
               <Typography variant="h5" className="font-bold mb-2">Innovation</Typography>
               <Typography>We embrace creativity and strive to deliver cutting-edge solutions for every client.</Typography>
             </div>
             <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
-              <ShieldCheckIcon className="h-10 w-10 text-[#2563eb] mb-3" />
+              <svg width="40" height="40" fill="none" stroke={iconColor} strokeWidth="2" viewBox="0 0 40 40" className="mb-3"><rect x="10" y="10" width="20" height="20" rx="6"/><path d="M16 20l4 4 4-8"/></svg>
               <Typography variant="h5" className="font-bold mb-2">Integrity</Typography>
               <Typography>We act with honesty, transparency, and respect in all our interactions.</Typography>
             </div>
             <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
-              <StarIcon className="h-10 w-10 text-yellow-500 mb-3" />
+              <svg width="40" height="40" fill="none" stroke={iconColor} strokeWidth="2" viewBox="0 0 40 40" className="mb-3"><polygon points="20,8 24,18 34,18 26,24 30,34 20,28 10,34 14,24 6,18 16,18"/></svg>
               <Typography variant="h5" className="font-bold mb-2">Excellence</Typography>
               <Typography>We are committed to delivering the highest quality in everything we do.</Typography>
             </div>
@@ -161,17 +163,17 @@ export function About() {
           <Typography variant="h2" className="text-3xl md:text-4xl font-bold mb-8">Why Choose Techvel Solutions?</Typography>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
-              <UserGroupIcon className="h-10 w-10 text-[#2563eb] mb-3" />
+              <svg width="40" height="40" fill="none" stroke={iconColor} strokeWidth="2" viewBox="0 0 40 40" className="mb-3"><circle cx="14" cy="18" r="4"/><circle cx="26" cy="18" r="4"/><path d="M10 30c0-4 8-4 8-8"/><path d="M30 30c0-4-8-4-8-8"/></svg>
               <Typography variant="h5" className="font-bold mb-2">Expert Team</Typography>
               <Typography>Our professionals bring years of experience and a passion for technology to every project.</Typography>
             </div>
             <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
-              <HeartIcon className="h-10 w-10 text-[#f92628] mb-3" />
+              <svg width="40" height="40" fill="none" stroke={iconColor} strokeWidth="2" viewBox="0 0 40 40" className="mb-3"><path d="M20 34s-10-6-10-14a6 6 0 0 1 12 0 6 6 0 0 1 12 0c0 8-10 14-10 14z"/></svg>
               <Typography variant="h5" className="font-bold mb-2">Client-Centric Approach</Typography>
               <Typography>We listen, understand, and tailor our solutions to meet your unique business needs.</Typography>
             </div>
             <div className="bg-gray-100 rounded-xl p-6 flex flex-col items-center">
-              <CheckBadgeIcon className="h-10 w-10 text-green-500 mb-3" />
+              <svg width="40" height="40" fill="none" stroke={iconColor} strokeWidth="2" viewBox="0 0 40 40" className="mb-3"><circle cx="20" cy="20" r="16"/><path d="M14 20l4 4 8-8"/></svg>
               <Typography variant="h5" className="font-bold mb-2">Proven Results</Typography>
               <Typography>We have a track record of delivering successful projects that drive real business value.</Typography>
             </div>
@@ -235,10 +237,10 @@ export function About() {
                       </div>
                     </div>
                   </div>
-                  <Typography variant="h5" className="font-extrabold mb-1">
+                  <Typography variant="h5" className="font-extrabold mb-1 text-center">
                     {name}
                   </Typography>
-                  <Typography className="text-[#f92628] font-bold">
+                  <Typography className="text-[#C41E3A] font-bold text-center">
                     {position}
                   </Typography>
                 </CardBody>

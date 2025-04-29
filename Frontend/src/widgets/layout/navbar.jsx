@@ -44,42 +44,43 @@ export function Navbar({ brandName, routes, action }) {
   }, [servicesOpen, dropdownRef]);
 
   const servicesDropdown = (
-    <div
-      className="absolute left-1/2 z-50 mt-2 w-[700px] -translate-x-1/2 rounded-lg bg-black py-6 shadow-2xl text-white text-left"
-      onMouseLeave={() => setServicesOpen(false)}
-    >
-      <div className="flex px-8 gap-12">
-        {/* IT Services & Development */}
-        <div>
-          <div className="font-bold text-white mb-3">IT Services & Development</div>
-          <ul className="space-y-2">
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🌐</span> Web Development</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>💻</span> Software & App Development</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🎨</span> User Interface & User Experience</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>☁️</span> SaaS</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🛒</span> E-Commerce </a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🧪</span> Quality Assurance</a></li>
-          </ul>
-        </div>
-        {/* Advance Technologies */}
-        <div>
-          <div className="font-bold text-white mb-3">Advance Technologies</div>
-          <ul className="space-y-2">
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🤖</span> Gen AI & Artificial Intelligence</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>📡</span> Internet of Things</a></li>
-          </ul>
-        </div>
-        {/* Rapid Contracts */}
-        <div>
-          <div className="font-bold text-white mb-3">Rapid Contracts</div>
-          <ul className="space-y-2">
-            <li><a href="#" className="hover:text-blue-600"><span>🚀</span> MVP Development</a></li>
-            <li><a href="#" className="hover:text-blue-600"><span>🏢</span> Enterprise Solutions</a></li>
-            <li><a href="#" className="hover:text-blue-600"><span>🔍</span> Tech Research </a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    // <div
+    //   className="absolute left-1/2 z-50 mt-2 w-[700px] -translate-x-1/2 rounded-lg bg-black py-6 shadow-2xl text-white text-left"
+    //   onMouseLeave={() => setServicesOpen(false)}
+    // >
+    //   <div className="flex px-8 gap-12">
+    //     {/* IT Services & Development */}
+    //     <div>
+    //       <div className="font-bold text-white mb-3">IT Services & Development</div>
+    //       <ul className="space-y-2">
+    //         <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🌐</span> Web Development</a></li>
+    //         <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>💻</span> Software & App Development</a></li>
+    //         <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🎨</span> User Interface & User Experience</a></li>
+    //         <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>☁️</span> SaaS</a></li>
+    //         <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🛒</span> E-Commerce </a></li>
+    //         <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🧪</span> Quality Assurance</a></li>
+    //       </ul>
+    //     </div>
+    //     {/* Advance Technologies */}
+    //     <div>
+    //       <div className="font-bold text-white mb-3">Advance Technologies</div>
+    //       <ul className="space-y-2">
+    //         <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>🤖</span> Gen AI & Artificial Intelligence</a></li>
+    //         <li><a href="#" className="flex items-center gap-2 hover:text-blue-600"><span>📡</span> Internet of Things</a></li>
+    //       </ul>
+    //     </div>
+    //     {/* Rapid Contracts */}
+    //     <div>
+    //       <div className="font-bold text-white mb-3">Rapid Contracts</div>
+    //       <ul className="space-y-2">
+    //         <li><a href="#" className="hover:text-blue-600"><span>🚀</span> MVP Development</a></li>
+    //         <li><a href="#" className="hover:text-blue-600"><span>🏢</span> Enterprise Solutions</a></li>
+    //         <li><a href="#" className="hover:text-blue-600"><span>🔍</span> Tech Research </a></li>
+    //       </ul>
+    //     </div>
+    //   </div>
+    // </div>
+    null
   );
 
   const navList = (
@@ -93,14 +94,19 @@ export function Navbar({ brandName, routes, action }) {
                 variant="small"
                 color="inherit"
                 className="capitalize cursor-pointer"
-                onMouseEnter={() => setServicesOpen(true)}
-                onClick={() => setServicesOpen((open) => !open)}
+                // onMouseEnter={() => setServicesOpen(true)}
+                // onClick={() => setServicesOpen((open) => !open)}
               >
-                <span className="flex items-center gap-1 p-1 font-bold hover:text-[#f92628] transition duration-200">{name}</span>
+                <Link
+                  to={path}
+                  className="flex items-center gap-1 p-1 font-bold hover:text-[#C41E3A] transition duration-200"
+                >
+                  {name}
+                </Link>
               </Typography>
-              {servicesOpen && (
+              {/* {servicesOpen && (
                 <div ref={setDropdownRef}>{servicesDropdown}</div>
-              )}
+              )} */}
             </div>
           );
         }
@@ -112,31 +118,17 @@ export function Navbar({ brandName, routes, action }) {
             color="inherit"
             className="capitalize"
           >
-            {href ? (
-              <a
-                href={href}
-                target={target}
-                className="flex items-center gap-1 p-1 font-bold hover:text-[#f92628] transition duration-200"
-              >
-                {icon &&
-                  React.createElement(icon, {
-                    className: "w-[18px] h-[18px] opacity-75 mr-1",
-                  })}
-                {name}
-              </a>
-            ) : (
-              <Link
-                to={path}
-                target={target}
-                className="flex items-center gap-1 p-1 font-bold hover:text-[#f92628] transition duration-200"
-              >
-                {icon &&
-                  React.createElement(icon, {
-                    className: "w-[18px] h-[18px] opacity-75 mr-1",
-                  })}
-                {name}
-              </Link>
-            )}
+            <Link
+              to={path}
+              target={target}
+              className="flex items-center gap-1 p-1 font-bold hover:text-[#C41E3A] transition duration-200"
+            >
+              {icon &&
+                React.createElement(icon, {
+                  className: "w-[18px] h-[18px] opacity-75 mr-1",
+                })}
+              {name}
+            </Link>
           </Typography>
         );
       })}
@@ -169,7 +161,7 @@ export function Navbar({ brandName, routes, action }) {
           <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f] shadow-[0_0_16px_4px_rgba(249,38,40,0.4)]">
             <button
               className="bg-black text-white rounded-xl px-6 py-2 text-base font-bold transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2"
-              onClick={() => navigate('/contact#contact-form-section')}
+              onClick={() => navigate('/contact')}
               type="button"
               style={{ minWidth: '140px' }}
             >
@@ -214,41 +206,18 @@ export function Navbar({ brandName, routes, action }) {
         <hr className="mb-4 border-blue-gray-100" />
         <ul className="flex flex-col gap-2 mb-6">
           {routes.filter(({ name }) => name.toLowerCase() !== "contact").map(({ name, path, href, target }) => {
+            // Convert name to Title Case
+            const titleCaseName = name.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
             if (name.toLowerCase() === "services") {
               return (
                 <li key={name}>
-                  <button
+                  <Link
+                    to={path}
                     className="flex w-full items-center justify-between font-bold text-left py-3 px-2 rounded-lg hover:bg-blue-gray-50 transition"
-                    onClick={() => setServicesOpen((open) => !open)}
+                    onClick={() => setOpenNav(false)}
                   >
-                    <span>{name}</span>
-                    <ChevronDownIcon
-                      className={`h-5 w-5 ml-2 transition-transform ${servicesOpen ? "rotate-180" : "rotate-0"}`}
-                    />
-                  </button>
-                  {servicesOpen && (
-                    <div className="pl-6 pb-2">
-                      <div className="font-bold text-blue-gray-900 mb-2 mt-2">IT Services & Development</div>
-                      <ul className="mb-2">
-                        <li><a href="#" className="block py-1 hover:text-[#f92628]" onClick={() => setServicesOpen(false)}>Web Development</a></li>
-                        <li><a href="#" className="block py-1 hover:text-[#f92628]" onClick={() => setServicesOpen(false)}>Software & App Development</a></li>
-                        <li><a href="#" className="block py-1 hover:text-[#f92628]" onClick={() => setServicesOpen(false)}>User Interface & User Experience</a></li>
-                        <li><a href="#" className="block py-1 hover:text-[#f92628]" onClick={() => setServicesOpen(false)}>Quality Assurance</a></li>
-                      </ul>
-                      <div className="font-bold text-blue-gray-900 mb-2 mt-2">Advance Technologies</div>
-                      <ul className="mb-2">
-                        <li><a href="#" className="block py-1 hover:text-[#f92628]" onClick={() => setServicesOpen(false)}>LLM & Artificial Intelligence</a></li>
-                        <li><a href="#" className="block py-1 hover:text-[#f92628]" onClick={() => setServicesOpen(false)}>Internet of Things</a></li>
-                        <li><a href="#" className="block py-1 hover:text-[#f92628]" onClick={() => setServicesOpen(false)}>Game Development</a></li>
-                      </ul>
-                      <div className="font-bold text-blue-gray-900 mb-2 mt-2">Rapid Contracts</div>
-                      <ul>
-                        <li><a href="#" className="block py-1 hover:text-[#f92628]" onClick={() => setServicesOpen(false)}>MVP Development</a></li>
-                        <li><a href="#" className="block py-1 hover:text-[#f92628]" onClick={() => setServicesOpen(false)}>Enterprise Product Development</a></li>
-                        <li><a href="#" className="block py-1 hover:text-[#f92628]" onClick={() => setServicesOpen(false)}>Product Tech Research</a></li>
-                      </ul>
-                    </div>
-                  )}
+                    <span>{titleCaseName}</span>
+                  </Link>
                 </li>
               );
             }
@@ -261,7 +230,7 @@ export function Navbar({ brandName, routes, action }) {
                     className="block font-bold py-3 px-2 rounded-lg hover:bg-blue-gray-50 transition"
                     onClick={() => setOpenNav(false)}
                   >
-                    {name}
+                    {titleCaseName}
                   </a>
                 ) : (
                   <Link
@@ -270,7 +239,7 @@ export function Navbar({ brandName, routes, action }) {
                     className="block font-bold py-3 px-2 rounded-lg hover:bg-blue-gray-50 transition"
                     onClick={() => setOpenNav(false)}
                   >
-                    {name}
+                    {titleCaseName}
                   </Link>
                 )}
               </li>
@@ -290,7 +259,7 @@ export function Navbar({ brandName, routes, action }) {
               className="bg-black text-white rounded-xl px-8 py-3 text-lg font-bold w-full transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2 disabled:opacity-60 flex items-center justify-center gap-2"
               onClick={() => {
                 setOpenNav(false);
-                navigate('/contact#contact-form-section');
+                navigate('/contact');
               }}
             >
               Contact Us

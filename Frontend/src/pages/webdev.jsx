@@ -33,7 +33,7 @@ export default function WebDev() {
   const handleAccordionOpen = (value) => setOpen(open === value ? 0 : value);
 
   const handleContactNavigate = () => {
-    window.location.replace('/contact#contact-form-section');
+    window.location.replace('/contact');
   };
 
   return (
@@ -121,7 +121,7 @@ export default function WebDev() {
                 <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f] shadow-[0_0_16px_4px_rgba(249,38,40,0.4)]">
                   <button
                     type="button"
-                    className="bg-black text-white rounded-xl px-8 py-3 text-lg font-medium min-w-[200px] transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#f92628] focus:ring-offset-2"
+                    className="bg-black text-white rounded-xl px-8 py-3 text-lg font-medium min-w-[200px] transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:ring-offset-2"
                     onClick={handleContactNavigate}
                   >
                     Get Started
