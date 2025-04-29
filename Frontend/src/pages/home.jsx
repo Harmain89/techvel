@@ -565,7 +565,7 @@ export function Home() {
         </div>
       </div>
       <div className="container mx-auto px-4 py-20">
-        <div className="bg-[linear-gradient(90deg,_#2563eb,_#C41E3A,_#2563eb)] bg-[length:200%_100%] bg-left hover:bg-right transition-[background-position] duration-700 ease-in-out rounded-2xl p-12 relative overflow-hidden">
+        <div className="bg-[linear-gradient(90deg,_#000000,_#f92628,_#000000)] bg-[length:200%_100%] bg-left hover:bg-right transition-[background-position] duration-700 ease-in-out rounded-2xl p-12 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/img/pattern-bg.png')] opacity-10"></div>
           <div className="relative z-10 text-center">
             <Typography variant="h3" color="white" className="mb-4">

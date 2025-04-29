@@ -43,6 +43,12 @@ export const routes = [
     element: <Contact />,
     show: true,
   },
+  {
+    name: "detail",
+    path: "/explore",
+    element: <ProjectDetail />,
+    show: true,
+  },
  
   // {
   //   name: "Sign In",
