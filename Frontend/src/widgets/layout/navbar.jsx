@@ -9,7 +9,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Navbar({ brandName, routes, action }) {
 
@@ -17,10 +17,23 @@ export function Navbar({ brandName, routes, action }) {
   const [openNav, setOpenNav] = React.useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [dropdownRef, setDropdownRef] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
 
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  // Handle scroll events
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Handle resize events
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -136,10 +149,15 @@ export function Navbar({ brandName, routes, action }) {
   );
 
   return (
-    <MTNavbar color="transparent" className="p-3">
-      <div className="container mx-auto flex items-center justify-between text-white w-full">
+    <MTNavbar 
+      color="transparent" 
+      className={`p-3 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out rounded-none
+      ${scrolled ? 'bg-black/80 backdrop-blur-sm shadow-lg' : 'bg-transparent'}
+      ${openNav ? '!bg-white' : ''}`}
+    >
+      <div className={`container mx-auto flex items-center justify-between ${openNav ? 'text-blue-gray-900' : 'text-white'} w-full`}>
         {/* Left: Logo and Brand Name */}
-        <div className="flex items-center flex-1 min-w-0 -ml-6">
+        <div className="flex items-center flex-1 min-w-0 pl-2 sm:pl-0">
           <Link to="/" className="flex items-center gap-2 min-w-0">
             <img
               style={{ width: "44px", height: "44px" }}

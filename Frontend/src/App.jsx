@@ -5,6 +5,7 @@ import routes from "@/routes";
 import { Button } from "@material-tailwind/react";
 import { initGA, logPageView } from "@/utils/analytics";
 import ScrollToTopButton from "./widgets/layout/ScrollToTopButton";
+import ScrollToTop from "./widgets/layout/ScrollToTop";
 
 function App() {
   const location = useLocation();
@@ -21,21 +22,24 @@ function App() {
   }, [pathname]);
 
   return (
-    <div className="h-full w-full bg-[url('/img/header-bg.png')] bg-center">
-      {!(pathname == '/sign-in' || pathname == '/sign-up') && (
-        <div className="container absolute left-2/4 z-10 mx-auto -translate-x-2/4 p-4">
-          <Navbar routes={routes} />
-        </div>
-      )}
-      <Routes>
-        {routes.map(
-          ({ path, element }, key) =>
-            element && <Route key={key} path={path} element={element} />
+    <>
+      <ScrollToTop />
+      <div className="h-full w-full bg-[url('/img/header-bg.png')] bg-center">
+        {!(pathname == '/sign-in' || pathname == '/sign-up') && (
+          <div className="relative">
+            <Navbar routes={routes} />
+          </div>
         )}
-        <Route path="*" element={<Navigate to="/home" replace />} />
-      </Routes>
-      <ScrollToTopButton />
-    </div>
+        <Routes>
+          {routes.map(
+            ({ path, element }, key) =>
+              element && <Route key={key} path={path} element={element} />
+          )}
+          <Route path="*" element={<Navigate to="/home" replace />} />
+        </Routes>
+        <ScrollToTopButton />
+      </div>
+    </>
   );
 }
 
