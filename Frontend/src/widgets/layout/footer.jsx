@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Typography, IconButton } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const year = new Date().getFullYear();
 
@@ -41,7 +42,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
                 <Typography
                   variant="small"
                   color="white"
-                  className="mb-2 block font-medium uppercase"
+                  className="mb-2 ps-1 font-bold block uppercase text-[#C41E3A]"
                 >
                   {name}
                 </Typography>
@@ -49,13 +50,18 @@ export function Footer({ title, description, socials, menus, copyright }) {
                   {items.map((item) => (
                     <li key={item.name}>
                       <Typography
+                        key={item?.name}
                         as="a"
-                        href={item.path}
                         rel="noreferrer"
                         variant="small"
                         className="mb-2 block font-normal text-white hover:text-[#C41E3A] transition-colors"
                       >
-                        {item.name}
+                        <Link
+                          to={item?.path}
+                          className="flex items-center gap-1 p-1 font-bold hover:text-[#C41E3A] transition duration-200"
+                        >
+                          {item?.name}
+                        </Link>
                       </Typography>
                     </li>
                   ))}
@@ -101,25 +107,16 @@ Footer.defaultProps = {
     {
       name: "Pages",
       items: [
+        { name: "Home", path: "/" },
         { name: "About Us", path: "/about" },
-        { name: "Blog", path: "#" },
-        // {
-        //   name: "Services",
-        //   path: "#",
-        // },
+        { name: "Portfolio", path: "/portfolio" },
       ],
     },
     {
       name: "other resources",
       items: [
-        {
-          name: "Portfolio",
-          path: "/portfolio",
-        },
-        {
-          name: "Projetcs",
-          path: "#",
-        },
+        { name: "Gen Ai", path: "/gen-ai" },
+        { name: "Services", path: "/services" },
       ],
     },
   ],

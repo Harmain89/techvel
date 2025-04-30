@@ -151,7 +151,7 @@ export function Navbar({ brandName, routes, action }) {
   return (
     <MTNavbar 
       color="transparent" 
-      className={`p-3 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out rounded-none
+      className={`w-screen !max-w-none p-3 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out rounded-none
       ${scrolled ? 'bg-black/80 backdrop-blur-sm shadow-lg' : 'bg-transparent'}
       ${openNav ? '!bg-white' : ''}`}
     >

@@ -233,7 +233,7 @@ export function Services() {
               <TabsBody>
                 {categories.map(({ value }) => (
                   <TabPanel key={value} value={value} className="p-0">
-                    <div className="flex flex-row overflow-x-auto gap-x-4 mt-6 pb-4 snap-x snap-mandatory">
+                    <div className="flex flex-row overflow-x-auto overflow-y-hidden gap-x-4 mt-6 pb-4 snap-x snap-mandatory">
                       {services
                         .filter(service => service.category === value)
                         .map((service) => (
