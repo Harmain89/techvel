@@ -94,6 +94,11 @@ Footer.defaultProps = {
   socials: [
     {
       color: "gray",
+      name: "facebook",
+      path: "https://www.facebook.com/people/Techvel-Solutions/61575636520574/",
+    },
+    {
+      color: "gray",
       name: "instagram",
       path: "https://www.instagram.com/techvelsolutions/",
     },
