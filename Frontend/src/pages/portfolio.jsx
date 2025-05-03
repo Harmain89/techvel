@@ -53,7 +53,7 @@ export function Portfolio() {
             longDescription: "This app uses advanced language models to review your code, offer suggestions, and detect bugs before runtime. Designed for teams practicing continuous deployment.",
             category: "web",
             image: "/img/portfolio/ai-code-reviewer.png",
-            images: ["/img/portfolio/ai-code-reviewer.png", "/img/portfolio/extra1.png"],
+            images: ["/img/portfolio/ai-code-reviewer.png", "/img/portfolio/extra1.png", "/img/portfolio/wedissect.png"],
             technologies: ["Next.Js", "AI", "Material UI", "UI/UX"],
             link: "https://ai-code-review.netlify.app/",
         },
