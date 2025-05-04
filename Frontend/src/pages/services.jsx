@@ -23,6 +23,20 @@ import { featuresData, teamData, contactData } from "@/data";
 import axios from "axios";
 import { logEvent } from "@/utils/analytics";
 import { Link, useNavigate } from "react-router-dom";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+// Import required modules
+import { Pagination, Navigation } from 'swiper/modules';
+
+// Add custom styles for Swiper navigation
+const swiperStyles = {
+  '--swiper-navigation-color': '#000000',
+  '--swiper-pagination-color': '#C41E3A',
+};
 
 export function Services() {
   const [activeTab, setActiveTab] = useState("development");
@@ -66,7 +80,7 @@ export function Services() {
     {
       id: 1,
       title: "Custom Web Development",
-      description: "We build tailored web applications that perfectly align with your business needs, focusing on scalability, performance, and user experience.",
+      description: "We build tailored web applications that perfectly align with your business needs.",
       category: "development",
       icon: "code",
       features: ["Responsive Design", "Custom CMS Integration", "E-commerce Solutions", "API Development"],
@@ -138,7 +152,7 @@ export function Services() {
     {
       id: 4,
       title: "E-commerce Solutions",
-      description: "Build powerful online stores with seamless checkout experiences, inventory management, and marketing integration.",
+      description: "Build powerful online stores with seamless checkout experiences.",
       category: "development",
       icon: "shopping_cart",
       features: ["Custom Shopping Cart", "Payment Gateway Integration", "Inventory Management", "Customer Analytics"],
@@ -278,18 +292,29 @@ export function Services() {
               <TabsBody>
                 {categories.map(({ value }) => (
                   <TabPanel key={value} value={value} className="p-0">
-                    <div className="flex flex-row overflow-x-auto overflow-y-hidden gap-x-4 mt-6 pb-4 snap-x snap-mandatory">
+                    <Swiper
+                      modules={[Pagination, Navigation]}
+                      spaceBetween={16}
+                      slidesPerView={1.2}
+                      centeredSlides={true}
+                      pagination={{ clickable: true }}
+                      navigation={true}
+                      className="mt-6 pb-8"
+                      style={swiperStyles}
+                    >
                       {services
                         .filter(service => service.category === value)
                         .map((service) => (
-                          <div key={service.id} className="min-w-[90vw] max-w-xs snap-center">
-                            <ServiceCard
-                              service={service}
-                              isVisible={!!visibleCards[`service-${service.id}`]}
-                            />
-                          </div>
+                          <SwiperSlide key={service.id}>
+                            <div className="px-2">
+                              <ServiceCard
+                                service={service}
+                                isVisible={!!visibleCards[`service-${service.id}`]}
+                              />
+                            </div>
+                          </SwiperSlide>
                         ))}
-                    </div>
+                    </Swiper>
                   </TabPanel>
                 ))}
               </TabsBody>
