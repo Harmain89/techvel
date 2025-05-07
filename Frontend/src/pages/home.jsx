@@ -92,129 +92,138 @@ export function Home() {
   const services = [
     {
       id: 1,
-      title: "Custom Web Development",
-      description: "We build tailored web applications that perfectly align with your business needs.  .",
+      title: "Web Development",
+      description: "Responsive and SEO-friendly websites that offer exceptional user experiences and drive engagement.",
       category: "development",
       icon: "code",
       features: ["Responsive Design", "Custom CMS Integration", "E-commerce Solutions", "API Development"],
-      technologies: ["React", "Next.js", "Node.js", "Laravel"],
+      technologies: [],
     },
     {
-      id: 10,
+      id: 2,
+      title: "Custom Software Development",
+      description: "Tailored software solutions designed to meet your unique business requirements, ensuring seamless integration and optimal performance.",
+      category: "development",
+      icon: "code",
+      features: ["Responsive Design", "Custom CMS Integration", "E-commerce Solutions", "API Development"],
+      technologies: [],
+    },
+    {
+      id: 3,
       title: "SaaS Solutions",
       description: "Build scalable and secure Software-as-a-Service applications that can grow with your business needs.",
       category: "development",
       icon: "cloud",
       features: ["Multi-tenant Architecture", "Subscription Management", "User Management", "Analytics Dashboard"],
-      technologies: ["AWS", "Azure", "Docker", "Kubernetes"],
+      technologies: [],
     },
     {
-      id: 11,
+      id: 4,
       title: "MVP Development",
       description: "Quickly launch your Minimum Viable Product to validate your business idea and gather user feedback.",
       category: "development",
       icon: "rocket",
       features: ["Rapid Prototyping", "Core Features Development", "User Testing", "Iterative Improvements"],
-      technologies: ["React", "Node.js", "MongoDB", "Firebase"],
+      technologies: [],
     },
     {
-      id: 12,
+      id: 5,
       title: "Dashboard Solutions",
       description: "Create powerful, interactive dashboards that provide real-time insights and data visualization.",
       category: "development",
       icon: "chart",
       features: ["Real-time Data", "Custom Widgets", "Interactive Charts", "Role-based Access"],
-      technologies: ["D3.js", "Chart.js", "React", "Node.js"],
+      technologies: [],
     },
     {
-      id: 13,
+      id: 6,
       title: "Graph Solutions",
       description: "Develop advanced graph-based applications for complex data relationships and network analysis.",
       category: "development",
       icon: "network",
       features: ["Graph Databases", "Network Analysis", "Visualization", "Real-time Updates"],
-      technologies: ["Neo4j", "D3.js", "GraphQL", "React"],
+      technologies: [],
     },
     {
-      id: 14,
+      id: 7,
       title: "API & Cloud Solutions",
       description: "Build robust APIs and cloud-based solutions that power modern applications and services.",
       category: "development",
       icon: "cloud",
       features: ["RESTful APIs", "Cloud Architecture", "Microservices", "Serverless Functions"],
-      technologies: ["AWS", "Azure", "Node.js", "Python"],
+      technologies: [],
     },
     {
-      id: 2,
+      id: 8,
       title: "UI/UX Design",
       description: "Create stunning, intuitive interfaces that captivate users and enhance their experience with your digital products.",
       category: "design",
       icon: "palette",
       features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
-      technologies: ["Figma", "Adobe XD", "Sketch", "InVision"],
+      technologies: [],
     },
     {
-      id: 3,
+      id: 9,
       title: "Mobile App Development",
       description: "Develop high-performance native and cross-platform mobile applications that delight users and drive engagement.",
       category: "mobile",
       icon: "smartphone",
       features: ["iOS Development", "Android Development", "Cross-platform Solutions", "App Store Optimization"],
-      technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
+      technologies: [],
     },
     {
-      id: 4,
+      id: 10,
       title: "E-commerce Solutions",
       description: "Build powerful online stores with seamless checkout experiences.",
       category: "development",
       icon: "shopping_cart",
       features: ["Custom Shopping Cart", "Payment Gateway Integration", "Inventory Management", "Customer Analytics"],
-      technologies: ["Shopify", "WooCommerce", "Magento", "Custom Solutions"],
+      technologies: [],
     },
     {
-      id: 5,
+      id: 11,
       title: "UX Research & Testing",
       description: "Gain valuable insights about your users through comprehensive research and testing methodologies.",
       category: "design",
       icon: "search",
       features: ["User Interviews", "Usability Testing", "A/B Testing", "Analytics Integration"],
-      technologies: ["Hotjar", "Google Analytics", "UserTesting", "Optimal Workshop"],
+      technologies: [],
     },
     {
-      id: 6,
+      id: 12,
       title: "Tech Consultation",
       description: "Expert guidance on technology selection, architecture, and implementation strategies for your digital projects.",
       category: "consulting",
       icon: "lightbulb",
       features: ["Technology Stack Selection", "Architecture Planning", "Digital Transformation", "Process Optimization"],
-      technologies: ["Cloud Solutions", "DevOps", "Security", "Scalability"],
+      technologies: [],
     },
     {
-      id: 7,
+      id: 13,
       title: "Enterprise Solutions",
       description: "Comprehensive enterprise-grade applications designed for large-scale operations and complex business requirements.",
       category: "development",
       icon: "business",
       features: ["ERP Systems", "CRM Integration", "Business Intelligence", "Workflow Automation"],
-      technologies: ["Java Enterprise", "Microsoft .NET", "Oracle", "SAP Integration"],
+      technologies: [],
     },
     {
-      id: 8,
+      id: 14,
       title: "App UI Design",
       description: "Create cohesive, engaging mobile app interfaces that provide exceptional user experiences across all devices.",
       category: "design",
       icon: "smartphone",
       features: ["App Interface Design", "Design Guidelines", "Animation", "Micro-interactions"],
-      technologies: ["Adobe XD", "Figma", "After Effects", "Principle"],
+      technologies: [],
     },
     {
-      id: 9,
+      id: 15,
       title: "Cross-platform App Development",
       description: "Build once, deploy everywhere with efficient cross-platform mobile application development.",
       category: "mobile",
       icon: "devices",
       features: ["Shared Codebase", "Native Performance", "Custom Components", "Offline Functionality"],
-      technologies: ["React Native", "Flutter", "Xamarin", "Progressive Web Apps"],
+      technologies: [],
     },
   ];
 
@@ -415,7 +424,7 @@ export function Home() {
             className="opacity-90 text-center max-w-2xl mx-auto mt-24 sm:mt-0"
           >
             Comprehensive digital solutions tailored to your unique business needs.
-            From concept to deployment, we deliver excellence at every step.
+            Custom Software Solutions | Web & Mobile App Development | UI/UX Design
           </Typography>
 
           <div className="flex justify-center mt-20">
@@ -429,7 +438,7 @@ export function Home() {
                     }
                   }}
                 >
-                  Quick Discussion
+                  Get a Free Consultation
                 </button>
               </div>
             </div>
@@ -451,6 +460,16 @@ export function Home() {
 
       {/* Services Overview */}
       <div className="container mx-auto px-4 py-20">
+
+        {/* <div className="text-center mb-16">
+          <Typography variant="h3" color="blue-gray" className="mb-4">
+            Who We Are
+          </Typography>
+          <Typography className="text-gray-700 max-w-3xl mx-auto">
+            At Techvel Solutions, we are a dedicated team of technology enthusiasts committed to delivering innovative and scalable digital solutions. With a focus on quality and client satisfaction, we specialize in transforming ideas into impactful software products.
+          </Typography>
+        </div> */}
+        
         <div className="text-center mb-16">
           <Typography variant="h3" color="blue-gray" className="mb-4">
             What We Offer
@@ -648,20 +667,21 @@ export function Home() {
               our team is ready to help you achieve digital excellence.
             </Typography>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-         
-              <Button
-                size="lg"
-                variant="outlined"
-                color="white"
-                className="rounded-full px-8 hover:bg-white hover:text-[#C41E3A] transition duration-300 shadow hover:shadow-lg"
-                onClick={() => {
-                  if (contactRef.current) {
-                    contactRef.current.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                Schedule a Consultation
-              </Button>
+              <Link to="/portfolio">
+                <Button
+                  size="lg"
+                  variant="outlined"
+                  color="white"
+                  className="rounded-full px-8 hover:bg-white hover:text-[#C41E3A] transition duration-300 shadow hover:shadow-lg"
+                  onClick={() => {
+                    if (contactRef.current) {
+                      contactRef.current.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  View Our Portfolio
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -705,7 +725,7 @@ export function Home() {
 
             {/* Stat 3 */}
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300">
-              <div className="text-4xl font-bold text-[#C41E3A] mb-2">3+</div>
+              <div className="text-4xl font-bold text-[#C41E3A] mb-2">10+</div>
               <Typography variant="h6" color="blue-gray" className="mb-2">
                 Tech Experts
               </Typography>
@@ -716,7 +736,7 @@ export function Home() {
 
             {/* Stat 4 */}
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300">
-              <div className="text-4xl font-bold text-[#C41E3A] mb-2">5+</div>
+              <div className="text-4xl font-bold text-[#C41E3A] mb-2">9+</div>
               <Typography variant="h6" color="blue-gray" className="mb-2">
                 Services
               </Typography>
@@ -903,7 +923,7 @@ const ServiceCard = ({ service, isVisible }) => {
       ),
       network: (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
         </svg>
       ),
       palette: (

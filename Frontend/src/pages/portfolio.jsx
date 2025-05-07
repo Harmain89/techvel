@@ -149,10 +149,10 @@ export function Portfolio() {
             <div className="bg-profile-background h-full w-full bg-[url('/img/different-hero-image.png')] bg-cover bg-center scale-105 py-24 px-4 md:px-8">
                 <div className="container mx-auto mt-20">
                     <Typography variant="h1" color="white" className="mb-4 text-center">
-                        Our Portfolio
+                        Showcasing Our Digital Excellence
                     </Typography>
                     <Typography variant="lead" color="white" className="opacity-80 text-center max-w-2xl mx-auto">
-                        Showcasing our best work across web applications, mobile apps, and interactive dashboards.
+                        At Techvel Solutions, we take pride in delivering innovative and customized digital solutions that drive success for our clients. Our portfolio reflects our commitment to quality, creativity, and technological proficiency across various industries.
                     </Typography>
                 </div>
             </div>
