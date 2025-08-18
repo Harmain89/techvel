@@ -37,6 +37,26 @@ export function Portfolio() {
     const projects = [
         {
             id: 1,
+            title: "Glob Compare By AI-Driven System",
+            description: "AI-Powered Travel Destination Comparison Tool.",
+            longDescription: "This platform leverages AI to help travelers compare and discover ideal destinations based on their preferences and requirements.\n\nKey Features:\n- Compare multiple travel destinations side-by-side\n- AI-powered destination recommendations based on user preferences\n- Comprehensive travel information including flights, hotels, and activities\n- Real-time updates on weather, currency rates, and travel advisories\n\nThis solution helps travelers make informed decisions and plan their perfect trips with confidence.",
+            category: "app",
+            image: "/img/portfolio/glob-compare-ai/img-1.png",
+            images: [
+                "/img/portfolio/glob-compare-ai/img-1.png", 
+                "/img/portfolio/glob-compare-ai/img-2.png", 
+                "/img/portfolio/glob-compare-ai/img-3.png", 
+                "/img/portfolio/glob-compare-ai/img-4.png", 
+                "/img/portfolio/glob-compare-ai/img-5.png", 
+                "/img/portfolio/glob-compare-ai/img-6.png",
+                "/img/portfolio/glob-compare-ai/img-7.png",
+                "/img/portfolio/glob-compare-ai/img-8.png"
+            ],
+            technologies: ["Next.js", "React", "Node.js", "Express", "MongoDB", "OpenAI", "TailwindCSS", "Vercel"],
+            link: "https://globe-search-ai.netlify.app/",
+        },
+        {
+            id: 2,
             title: "Valid AI-Driven Idea",
             description: "AI-Powered Startup Idea Validator.",
             longDescription: "This platform leverages AI to help entrepreneurs validate their startup ideas with data-driven insights and comprehensive analysis.\n\nKey Features:\n- Generate 40+ detailed reports from market research to funding strategy\n- Business model & monetization analysis\n- Product roadmap & feature prioritization\n- AI-powered market validation\n\nThis solution helps entrepreneurs move from idea to execution with confidence and avoid costly mistakes.",
@@ -56,7 +76,7 @@ export function Portfolio() {
             link: "https://valid-idea-ai.netlify.app/",
         },
         {
-            id: 2,
+            id: 3,
             title: "AI-Driven Identity Check",
             description: "AI-Powered Background Check & Identity Verify.",
             longDescription: "This platform leverages AI to automate and improve background checks for hiring, user verification, and access control systems.\n\nKey Features:\n- OCR & facial recognition\n- Deep API integration\n- Real-time GCP orchestration\n\nThis solution helped reduce manual review time by over 60%.",
@@ -67,7 +87,7 @@ export function Portfolio() {
             link: "https://wedissect.com/",
         },
         {
-            id: 3,
+            id: 4,
             title: "Hair Color Drop",
             description: "An e-commerce platform tailored for custom hair color products with real-time inventory, order tracking, and stylist tools.",
             longDescription: "Hair Color Drop is a feature-rich e-commerce platform designed specifically for the hair care industry, offering custom hair color products directly to salons and professionals. Built with Laravel and Livewire, it provides a seamless user experience with real-time inventory management, order processing, and secure JWT-based authentication. The platform integrates with multiple third-party APIs for shipping, payments, and notifications. It also includes stylist-oriented tools such as personalized color charts and order history, enhancing the professional workflow and customer satisfaction.",
@@ -85,7 +105,7 @@ export function Portfolio() {
             link: "https://haircolordrop.com",
         },
         {
-            id: 4,
+            id: 5,
             title: "Background Image Remover",
             description: "Instantly remove backgrounds from your photos with AI Background Removal.",
             longDescription: "Our background remover allows users to upload an image and receive a clean, transparent background version in seconds.\n\nUseful for:\n- Product photography\n- Social media content\n- Design workflows",
@@ -96,7 +116,7 @@ export function Portfolio() {
             link: "https://background-removal-liart.vercel.app",
         },
         {
-            id: 5,
+            id: 6,
             title: "E-Shoe Store",
             description: "Displays products with appealing imagery.",
             longDescription: "An e-commerce platform with dynamic product filtering, shopping cart, and secure checkout. It supports admin and customer dashboards.",
@@ -107,7 +127,7 @@ export function Portfolio() {
             link: "https://e-shoe-store.vercel.app/",
         },
         {
-            id: 6,
+            id: 7,
             title: "Xtreme Fitness",
             description: "A modern fitness membership platform with real-time class scheduling, trainer management, and secure authentication.",
             longDescription: "Xtreme Fitness is a comprehensive web application built for gyms and fitness centers to manage memberships, trainers, and class schedules efficiently. Developed using Laravel and Livewire, the platform offers real-time updates, secure JWT-based user authentication, and seamless integration with third-party APIs for payment processing and notifications. The system also includes a powerful admin dashboard for managing clients, trainers, and subscriptions, ensuring a smooth and intuitive experience for both users and administrators.",
@@ -118,7 +138,7 @@ export function Portfolio() {
             link: "#",
         },
         {
-            id: 7,
+            id: 8,
             title: "In The Hair Saloon",
             description: "A complete salon booking and management system featuring a custom calendar, service forms, and client scheduling tools.",
             longDescription: "In The Hair Saloon is a robust web application built for salon owners and clients to streamline appointment scheduling and service management. Developed using Laravel and integrated with a fully customized calendar logic powered by FullCalendar API, it allows users to view availability, book appointments, and manage services with ease. The platform includes dynamic forms for capturing detailed client preferences, JWT-based authentication for secure access, and integrations with third-party APIs for notifications and other essential services. The admin panel provides full control over staff, time slots, and bookings, making it a perfect fit for modern salons looking to digitize their workflow.",
@@ -140,7 +160,7 @@ export function Portfolio() {
             link: "https://inthehairsalon.com",
         },
         {
-            id: 8,
+            id: 9,
             title: "AI Code Reviewer",
             description: "Get real-time suggestions for code improvements.",
             longDescription: "This app uses advanced language models to review your code, offer suggestions, and detect bugs before runtime. Designed for teams practicing continuous deployment.",
