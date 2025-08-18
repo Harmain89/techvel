@@ -8,8 +8,8 @@ export function Footer({ title, description, socials, menus, copyright }) {
   return (
     <footer className="relative px-4 pt-8 pb-6 bg-[#0a0606]">
       <div className="container mx-auto">
-        <div className="flex flex-wrap flex-row justify-between items-start pt-6 text-left">
-          <div className="w-full lg:w-4/12 px-4 flex flex-col justify-center">
+        <div className="flex flex-wrap flex-col lg:flex-row justify-between items-start pt-6 text-left">
+          <div className="w-full lg:w-4/12 px-4 flex flex-col justify-center mb-8 lg:mb-0">
             <Typography variant="h4" className="mb-4" color="white">
               {title}
             </Typography>
@@ -33,11 +33,11 @@ export function Footer({ title, description, socials, menus, copyright }) {
             </div>
           </div>
 
-          <div className="w-full lg:w-8/12 flex flex-row justify-between mt-12 lg:mt-0">
+          <div className="w-full lg:w-8/12 flex flex-col sm:flex-row justify-start sm:justify-between gap-8 sm:gap-4">
             {menus.map(({ name, items }, index) => (
               <div
                 key={name}
-                className={`px-4 ${index >= menus.length - 2 ? 'ml-auto' : ''}`}
+                className={`px-4 ${index >= menus.length - 2 ? 'sm:ml-auto' : ''}`}
               >
                 <Typography
                   variant="small"
