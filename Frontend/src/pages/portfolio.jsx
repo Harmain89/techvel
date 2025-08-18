@@ -256,14 +256,14 @@ export function Portfolio() {
                 {/* More Projects Coming Soon Section */}
                 <div className="mt-16">
                     <div className="bg-blue-gray-50 rounded-xl p-8 text-center">
-                        <div className="flex justify-center mb-4">
+                        {/* <div className="flex justify-center mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#c41e3a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                        </div>
-                        <Typography variant="h4" color="blue-gray" className="mb-2">
+                        </div> */}
+                        {/* <Typography variant="h4" color="blue-gray" className="mb-2">
                             More Projects Coming Soon
-                        </Typography>
+                        </Typography> */}
                         <Typography className="text-gray-700 mb-6 max-w-2xl mx-auto">
                             We're continuously expanding our portfolio with exciting new projects. Check back regularly to see our latest work, or get in touch to discuss your project requirements.
                         </Typography>
