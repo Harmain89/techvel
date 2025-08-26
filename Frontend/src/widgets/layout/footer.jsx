@@ -33,7 +33,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
             </div>
           </div>
 
-          <div className="w-full lg:w-8/12 flex flex-col sm:flex-row justify-start sm:justify-between gap-8 sm:gap-4">
+          <div className="w-full lg:w-8/12 flex flex-row justify-start sm:justify-between gap-4 sm:gap-4">
             {menus.map(({ name, items }, index) => (
               <div
                 key={name}
